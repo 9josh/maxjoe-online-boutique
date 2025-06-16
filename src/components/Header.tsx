@@ -21,18 +21,18 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-gray-600 to-gray-800 bg-clip-text text-transparent">
+            <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-gray-600 to-gray-800 bg-clip-text text-transparent">
               MaxJoe
             </h1>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex space-x-6 lg:space-x-8">
             {navigation.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="text-gray-700 hover:text-gray-900 font-medium transition-colors duration-200 relative group"
+                className="text-gray-700 hover:text-gray-900 font-medium transition-colors duration-200 relative group text-sm lg:text-base"
               >
                 {item.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gray-800 group-hover:w-full transition-all duration-300"></span>
@@ -41,21 +41,21 @@ const Header = () => {
           </nav>
 
           {/* Actions */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2 sm:space-x-4">
             <Button
               variant="ghost"
               size="sm"
               onClick={() => setIsSearchOpen(!isSearchOpen)}
-              className="text-gray-700 hover:text-gray-900"
+              className="text-gray-700 hover:text-gray-900 p-2"
             >
-              <Search className="h-5 w-5" />
+              <Search className="h-4 w-4 sm:h-5 sm:w-5" />
             </Button>
-            <Button variant="ghost" size="sm" className="text-gray-700 hover:text-gray-900">
-              <User className="h-5 w-5" />
+            <Button variant="ghost" size="sm" className="text-gray-700 hover:text-gray-900 p-2">
+              <User className="h-4 w-4 sm:h-5 sm:w-5" />
             </Button>
-            <Button variant="ghost" size="sm" className="text-gray-700 hover:text-gray-900 relative">
-              <ShoppingCart className="h-5 w-5" />
-              <span className="absolute -top-1 -right-1 bg-gray-800 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+            <Button variant="ghost" size="sm" className="text-gray-700 hover:text-gray-900 relative p-2">
+              <ShoppingCart className="h-4 w-4 sm:h-5 sm:w-5" />
+              <span className="absolute -top-1 -right-1 bg-gray-800 text-white text-xs rounded-full h-4 w-4 sm:h-5 sm:w-5 flex items-center justify-center text-[10px] sm:text-xs">
                 0
               </span>
             </Button>
@@ -63,7 +63,7 @@ const Header = () => {
             {/* Mobile Menu */}
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="sm" className="md:hidden">
+                <Button variant="ghost" size="sm" className="md:hidden p-2">
                   <Menu className="h-5 w-5" />
                 </Button>
               </SheetTrigger>
@@ -73,7 +73,7 @@ const Header = () => {
                     <a
                       key={item.name}
                       href={item.href}
-                      className="text-gray-700 hover:text-gray-900 font-medium py-2 border-b border-gray-100"
+                      className="text-gray-700 hover:text-gray-900 font-medium py-3 border-b border-gray-100 text-lg"
                     >
                       {item.name}
                     </a>

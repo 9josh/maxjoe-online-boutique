@@ -35,17 +35,17 @@ const FeaturedProducts = () => {
   ];
 
   return (
-    <section className="py-20 px-4 bg-gray-50">
+    <section className="py-16 sm:py-20 px-4 bg-gray-50">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-light text-gray-800 mb-4">Featured Pieces</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl font-light text-gray-800 mb-4">Featured Pieces</h2>
+          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
             Handpicked selections from our master jewelers, each piece representing 
             the pinnacle of luxury and craftsmanship.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {products.map((product, index) => (
             <div 
               key={product.id} 
@@ -61,18 +61,18 @@ const FeaturedProducts = () => {
                   />
                 </AspectRatio>
                 <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <Button size="sm" variant="secondary" className="bg-white/90 hover:bg-white">
+                  <Button size="sm" variant="secondary" className="bg-white/90 hover:bg-white text-xs sm:text-sm">
                     Quick View
                   </Button>
                 </div>
               </div>
               
-              <div className="p-6">
-                <div className="text-sm text-gray-500 mb-2">{product.category}</div>
-                <h3 className="text-lg font-medium text-gray-800 mb-2">{product.name}</h3>
-                <div className="flex items-center justify-between">
-                  <span className="text-xl font-semibold text-gray-900">{product.price}</span>
-                  <Button size="sm" className="bg-gray-800 hover:bg-gray-900 text-white">
+              <div className="p-4 sm:p-6">
+                <div className="text-xs sm:text-sm text-gray-500 mb-2">{product.category}</div>
+                <h3 className="text-base sm:text-lg font-medium text-gray-800 mb-2 leading-tight">{product.name}</h3>
+                <div className="flex items-center justify-between flex-wrap gap-2">
+                  <span className="text-lg sm:text-xl font-semibold text-gray-900">{product.price}</span>
+                  <Button size="sm" className="bg-gray-800 hover:bg-gray-900 text-white text-xs sm:text-sm px-3 sm:px-4">
                     Add to Cart
                   </Button>
                 </div>
@@ -81,8 +81,8 @@ const FeaturedProducts = () => {
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <Button size="lg" variant="outline" className="border-gray-300 text-gray-700 hover:bg-gray-50">
+        <div className="text-center mt-8 sm:mt-12">
+          <Button size="lg" variant="outline" className="border-gray-300 text-gray-700 hover:bg-gray-50 w-full sm:w-auto">
             View All Products
           </Button>
         </div>
