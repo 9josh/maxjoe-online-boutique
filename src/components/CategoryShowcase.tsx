@@ -1,5 +1,6 @@
 
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { Link } from "react-router-dom";
 
 const CategoryShowcase = () => {
   const categories = [
@@ -35,8 +36,9 @@ const CategoryShowcase = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         {categories.map((category, index) => (
-          <div 
-            key={category.name} 
+          <Link 
+            key={category.name}
+            to={category.href}
             className="group cursor-pointer"
             style={{ animationDelay: `${index * 0.1}s` }}
           >
@@ -62,7 +64,7 @@ const CategoryShowcase = () => {
                 </span>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>

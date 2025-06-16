@@ -4,6 +4,7 @@ import { Search, User, ShoppingCart, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -21,22 +22,24 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-gray-600 to-gray-800 bg-clip-text text-transparent">
-              MaxJoe
-            </h1>
+            <Link to="/">
+              <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-gray-600 to-gray-800 bg-clip-text text-transparent">
+                MaxJoe
+              </h1>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-6 lg:space-x-8">
             {navigation.map((item) => (
-              <a
+              <Link
                 key={item.name}
-                href={item.href}
+                to={item.href}
                 className="text-gray-700 hover:text-gray-900 font-medium transition-colors duration-200 relative group text-sm lg:text-base"
               >
                 {item.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gray-800 group-hover:w-full transition-all duration-300"></span>
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -53,12 +56,14 @@ const Header = () => {
             <Button variant="ghost" size="sm" className="text-gray-700 hover:text-gray-900 p-2">
               <User className="h-4 w-4 sm:h-5 sm:w-5" />
             </Button>
-            <Button variant="ghost" size="sm" className="text-gray-700 hover:text-gray-900 relative p-2">
-              <ShoppingCart className="h-4 w-4 sm:h-5 sm:w-5" />
-              <span className="absolute -top-1 -right-1 bg-gray-800 text-white text-xs rounded-full h-4 w-4 sm:h-5 sm:w-5 flex items-center justify-center text-[10px] sm:text-xs">
-                0
-              </span>
-            </Button>
+            <Link to="/cart">
+              <Button variant="ghost" size="sm" className="text-gray-700 hover:text-gray-900 relative p-2">
+                <ShoppingCart className="h-4 w-4 sm:h-5 sm:w-5" />
+                <span className="absolute -top-1 -right-1 bg-gray-800 text-white text-xs rounded-full h-4 w-4 sm:h-5 sm:w-5 flex items-center justify-center text-[10px] sm:text-xs">
+                  2
+                </span>
+              </Button>
+            </Link>
 
             {/* Mobile Menu */}
             <Sheet>
@@ -70,13 +75,13 @@ const Header = () => {
               <SheetContent side="right" className="w-80">
                 <nav className="flex flex-col space-y-4 mt-8">
                   {navigation.map((item) => (
-                    <a
+                    <Link
                       key={item.name}
-                      href={item.href}
+                      to={item.href}
                       className="text-gray-700 hover:text-gray-900 font-medium py-3 border-b border-gray-100 text-lg"
                     >
                       {item.name}
-                    </a>
+                    </Link>
                   ))}
                 </nav>
               </SheetContent>
