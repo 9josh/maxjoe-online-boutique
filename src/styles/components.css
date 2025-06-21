@@ -274,11 +274,11 @@
   box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
-.hover\:shadow-lg:hover {
+.hover-shadow-lg:hover {
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
-.hover\:shadow-xl:hover {
+.hover-shadow-xl:hover {
   box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
@@ -334,7 +334,7 @@
   opacity: 1;
 }
 
-.hover\:opacity-100:hover {
+.hover-opacity-100:hover {
   opacity: 1;
 }
 
@@ -405,15 +405,15 @@
 }
 
 @media (min-width: 640px) {
-  .sm\:size-5 {
+  .sm-size-5 {
     width: 1.25rem;
     height: 1.25rem;
   }
-  .sm\:size-32 {
+  .sm-size-32 {
     width: 8rem;
     height: 8rem;
   }
-  .sm\:size-40 {
+  .sm-size-40 {
     width: 10rem;
     height: 10rem;
   }

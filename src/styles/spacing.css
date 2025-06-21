@@ -165,39 +165,42 @@
 
 /* Responsive spacing */
 @media (min-width: 640px) {
-  .sm\:padding-horizontal-lg {
+  .sm-padding-horizontal-lg {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
-  .sm\:padding-horizontal-xl {
+  .sm-padding-horizontal-xl {
     padding-left: 2rem;
     padding-right: 2rem;
   }
-  .sm\:padding-vertical-2xl {
+  .sm-padding-vertical-2xl {
     padding-top: 4rem;
     padding-bottom: 4rem;
   }
-  .sm\:padding-vertical-3xl {
+  .sm-padding-vertical-3xl {
     padding-top: 5rem;
     padding-bottom: 5rem;
   }
-  .sm\:margin-bottom-3xl {
+  .sm-margin-bottom-3xl {
     margin-bottom: 4rem;
   }
-  .sm\:gap-lg {
+  .sm-gap-lg {
     gap: 1.5rem;
   }
-  .sm\:gap-xl {
+  .sm-gap-xl {
     gap: 2rem;
+  }
+  .sm-space-horizontal-base > :not([hidden]) ~ :not([hidden]) {
+    margin-left: 1rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .lg\:padding-horizontal-xl {
+  .lg-padding-horizontal-xl {
     padding-left: 2rem;
     padding-right: 2rem;
   }
-  .lg\:space-horizontal-xl > :not([hidden]) ~ :not([hidden]) {
+  .lg-space-horizontal-xl > :not([hidden]) ~ :not([hidden]) {
     margin-left: 2rem;
   }
 }

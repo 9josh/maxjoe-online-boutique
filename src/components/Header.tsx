@@ -23,19 +23,19 @@ const Header = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/">
-              <h1 className="logo sm\:subheading-lg">
+              <h1 className="logo sm-subheading-lg">
                 MaxJoe
               </h1>
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="md\:display-flex space-horizontal-lg lg\:space-horizontal-xl display-hidden">
+          <nav className="md-display-block space-horizontal-lg lg-space-horizontal-xl display-hidden">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
-                className="nav-link body-sm lg\:body-base"
+                className="nav-link body-sm lg-body-base"
               >
                 {item.name}
               </Link>
@@ -43,22 +43,22 @@ const Header = () => {
           </nav>
 
           {/* Actions */}
-          <div className="flex-start space-horizontal-sm sm\:space-horizontal-base">
+          <div className="flex-start space-horizontal-sm sm-space-horizontal-base">
             <Button
               variant="ghost"
               size="sm"
               onClick={() => setIsSearchOpen(!isSearchOpen)}
               className="btn btn-ghost padding-sm"
             >
-              <Search className="size-4 sm\:size-5" />
+              <Search className="size-4 sm-size-5" />
             </Button>
             <Button variant="ghost" size="sm" className="btn btn-ghost padding-sm">
-              <User className="size-4 sm\:size-5" />
+              <User className="size-4 sm-size-5" />
             </Button>
             <Link to="/cart">
               <Button variant="ghost" size="sm" className="btn btn-ghost position-relative padding-sm">
-                <ShoppingCart className="size-4 sm\:size-5" />
-                <span className="position-absolute bg-primary text-white body-xs rounded-full size-4 sm\:size-5 flex-center" style={{top: '-0.25rem', right: '-0.25rem'}}>
+                <ShoppingCart className="size-4 sm-size-5" />
+                <span className="position-absolute bg-primary text-white body-xs rounded-full size-4 sm-size-5 flex-center" style={{top: '-0.25rem', right: '-0.25rem'}}>
                   2
                 </span>
               </Button>
@@ -67,7 +67,7 @@ const Header = () => {
             {/* Mobile Menu */}
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="sm" className="btn btn-ghost md\:display-hidden padding-sm">
+                <Button variant="ghost" size="sm" className="btn btn-ghost md-display-hidden padding-sm">
                   <Menu className="size-5" />
                 </Button>
               </SheetTrigger>
@@ -77,7 +77,7 @@ const Header = () => {
                     <Link
                       key={item.name}
                       to={item.href}
-                      className="text-primary-light hover\:text-primary font-medium padding-vertical-sm border-bottom border-light subheading-lg"
+                      className="text-primary-light hover-text-primary font-medium padding-vertical-sm border-bottom border-light subheading-lg"
                     >
                       {item.name}
                     </Link>
@@ -95,7 +95,7 @@ const Header = () => {
               <Input
                 type="text"
                 placeholder="Search luxury jewelry..."
-                className="input padding-left-xl bg-light border-base hover\:border-dark"
+                className="input padding-left-xl bg-light border-base hover-border-dark"
                 style={{paddingLeft: '2.5rem'}}
               />
               <Search className="position-absolute size-4 text-muted" style={{left: '0.75rem', top: '50%', transform: 'translateY(-50%)'}} />

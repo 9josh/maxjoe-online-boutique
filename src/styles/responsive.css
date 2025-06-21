@@ -3,61 +3,65 @@
 
 /* Small screens (640px and up) */
 @media (min-width: 640px) {
-  .sm\:display-block {
+  .sm-display-block {
     display: block;
   }
-  .sm\:display-flex {
+  .sm-display-flex {
     display: flex;
   }
-  .sm\:display-hidden {
+  .sm-display-hidden {
     display: none;
   }
-  .sm\:container-small {
+  .sm-container-small {
     max-width: 24rem;
   }
 }
 
 /* Medium screens (768px and up) */
 @media (min-width: 768px) {
-  .md\:display-block {
+  .md-display-block {
     display: block;
   }
-  .md\:display-flex {
+  .md-display-flex {
     display: flex;
   }
-  .md\:display-hidden {
+  .md-display-hidden {
     display: none;
   }
-  .md\:position-absolute {
+  .md-position-absolute {
     position: absolute;
   }
-  .md\:width-auto {
+  .md-width-auto {
     width: auto;
   }
 }
 
 /* Large screens (1024px and up) */
 @media (min-width: 1024px) {
-  .lg\:display-block {
+  .lg-display-block {
     display: block;
   }
-  .lg\:display-flex {
+  .lg-display-flex {
     display: flex;
   }
-  .lg\:display-hidden {
+  .lg-display-hidden {
     display: none;
+  }
+  .lg-body-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 }
 
 /* Extra large screens (1280px and up) */
 @media (min-width: 1280px) {
-  .xl\:display-block {
+  .xl-display-block {
     display: block;
   }
-  .xl\:display-flex {
+  .xl-display-flex {
     display: flex;
   }
-  .xl\:display-hidden {
+  .xl-display-hidden {
     display: none;
   }
 }
