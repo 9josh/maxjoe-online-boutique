@@ -17,28 +17,27 @@ const Header = () => {
   ];
 
   return (
-    <header className="bg-white/90 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+    <header className="header">
+      <div className="header-content">
+        <div className="header-inner">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/">
-              <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-gray-600 to-gray-800 bg-clip-text text-transparent">
+              <h1 className="logo text-xl sm:text-2xl">
                 MaxJoe
               </h1>
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-6 lg:space-x-8">
+          <nav className="nav space-x-6 lg:space-x-8">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
-                className="text-gray-700 hover:text-gray-900 font-medium transition-colors duration-200 relative group text-sm lg:text-base"
+                className="nav-link text-sm lg:text-base"
               >
                 {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gray-800 group-hover:w-full transition-all duration-300"></span>
               </Link>
             ))}
           </nav>
@@ -49,17 +48,17 @@ const Header = () => {
               variant="ghost"
               size="sm"
               onClick={() => setIsSearchOpen(!isSearchOpen)}
-              className="text-gray-700 hover:text-gray-900 p-2"
+              className="btn btn-ghost p-2"
             >
-              <Search className="h-4 w-4 sm:h-5 sm:w-5" />
+              <Search className="w-4 h-4 sm:w-5 sm:h-5" />
             </Button>
-            <Button variant="ghost" size="sm" className="text-gray-700 hover:text-gray-900 p-2">
-              <User className="h-4 w-4 sm:h-5 sm:w-5" />
+            <Button variant="ghost" size="sm" className="btn btn-ghost p-2">
+              <User className="w-4 h-4 sm:w-5 sm:h-5" />
             </Button>
             <Link to="/cart">
-              <Button variant="ghost" size="sm" className="text-gray-700 hover:text-gray-900 relative p-2">
-                <ShoppingCart className="h-4 w-4 sm:h-5 sm:w-5" />
-                <span className="absolute -top-1 -right-1 bg-gray-800 text-white text-xs rounded-full h-4 w-4 sm:h-5 sm:w-5 flex items-center justify-center text-[10px] sm:text-xs">
+              <Button variant="ghost" size="sm" className="btn btn-ghost relative p-2">
+                <ShoppingCart className="w-4 h-4 sm:w-5 sm:h-5" />
+                <span className="absolute -top-1 -right-1 bg-gray-800 text-white text-xs rounded-full w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center">
                   2
                 </span>
               </Button>
@@ -68,8 +67,8 @@ const Header = () => {
             {/* Mobile Menu */}
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="sm" className="md:hidden p-2">
-                  <Menu className="h-5 w-5" />
+                <Button variant="ghost" size="sm" className="btn btn-ghost md:hidden p-2">
+                  <Menu className="w-5 h-5" />
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-80">
@@ -96,9 +95,9 @@ const Header = () => {
               <Input
                 type="text"
                 placeholder="Search luxury jewelry..."
-                className="pl-10 bg-gray-50 border-gray-200 focus:border-gray-400"
+                className="input pl-10 bg-gray-50 border-gray-200 hover:border-gray-400"
               />
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
             </div>
           </div>
         )}

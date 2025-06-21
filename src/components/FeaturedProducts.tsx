@@ -57,11 +57,11 @@ const FeaturedProducts = () => {
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover group:hover .scale-105 transition-transform duration-500"
                   />
                 </AspectRatio>
-                <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <Button size="sm" variant="secondary" className="bg-white/90 hover:bg-white text-xs sm:text-sm">
+                <div className="absolute top-3 right-3 opacity-0 group:hover .opacity-100 transition-opacity">
+                  <Button size="sm" variant="secondary" className="btn btn-secondary bg-white/90 hover:bg-white text-xs sm:text-sm">
                     Quick View
                   </Button>
                 </div>
@@ -72,7 +72,7 @@ const FeaturedProducts = () => {
                 <h3 className="text-base sm:text-lg font-medium text-gray-800 mb-2 leading-tight">{product.name}</h3>
                 <div className="flex items-center justify-between flex-wrap gap-2">
                   <span className="text-lg sm:text-xl font-semibold text-gray-900">{product.price}</span>
-                  <Button size="sm" className="bg-gray-800 hover:bg-gray-900 text-white text-xs sm:text-sm px-3 sm:px-4">
+                  <Button size="sm" className="btn btn-primary text-xs sm:text-sm px-3 sm:px-4">
                     Add to Cart
                   </Button>
                 </div>
@@ -82,7 +82,7 @@ const FeaturedProducts = () => {
         </div>
 
         <div className="text-center mt-8 sm:mt-12">
-          <Button size="lg" variant="outline" className="border-gray-300 text-gray-700 hover:bg-gray-50 w-full sm:w-auto">
+          <Button size="lg" variant="outline" className="btn btn-outline w-full sm:w-auto">
             View All Products
           </Button>
         </div>

@@ -22,8 +22,8 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-white border-t border-gray-200">
-      <div className="max-w-7xl mx-auto px-4 py-12 sm:py-16">
+    <footer className="footer">
+      <div className="footer-content">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="lg:col-span-1 text-center sm:text-left">
@@ -78,7 +78,7 @@ const Footer = () => {
 
           {/* Company Links */}
           <div className="text-center sm:text-left">
-            <h4 className="text-sm font-semibent text-gray-800 uppercase tracking-wider mb-4">Company</h4>
+            <h4 className="text-sm font-semibold text-gray-800 uppercase tracking-wider mb-4">Company</h4>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>

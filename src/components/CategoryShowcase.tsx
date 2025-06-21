@@ -42,12 +42,12 @@ const CategoryShowcase = () => {
             className="group cursor-pointer"
             style={{ animationDelay: `${index * 0.1}s` }}
           >
-            <div className="relative overflow-hidden rounded-lg bg-white shadow-lg hover:shadow-xl transition-all duration-500 group-hover:-translate-y-2">
+            <div className="relative overflow-hidden rounded-lg bg-white shadow-lg hover:shadow-xl transition-all duration-500 group:hover .-translate-y-2">
               <AspectRatio ratio={1}>
                 <img
                   src={category.image}
                   alt={category.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover group:hover .scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
               </AspectRatio>
@@ -58,7 +58,7 @@ const CategoryShowcase = () => {
               </div>
               
               {/* Glass overlay effect */}
-              <div className="absolute inset-0 bg-white/10 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <div className="absolute inset-0 bg-white/10 backdrop-blur-sm opacity-0 group:hover .opacity-100 transition-opacity duration-300 flex items-center justify-center">
                 <span className="text-white font-medium bg-black/30 px-4 sm:px-6 py-2 rounded-full backdrop-blur-sm text-sm sm:text-base">
                   Explore Collection
                 </span>

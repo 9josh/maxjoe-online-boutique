@@ -48,12 +48,12 @@ const Collections = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {collections.map((collection, index) => (
               <div key={collection.name} className="group cursor-pointer">
-                <div className="relative overflow-hidden rounded-lg bg-white shadow-lg hover:shadow-xl transition-all duration-500 group-hover:-translate-y-2">
+                <div className="relative overflow-hidden rounded-lg bg-white shadow-lg hover:shadow-xl transition-all duration-500 group:hover .-translate-y-2">
                   <AspectRatio ratio={4/3}>
                     <img
                       src={collection.image}
                       alt={collection.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      className="w-full h-full object-cover group:hover .scale-105 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                   </AspectRatio>
@@ -64,7 +64,7 @@ const Collections = () => {
                     <p className="text-sm text-gray-300">{collection.itemCount} pieces</p>
                   </div>
                   
-                  <div className="absolute inset-0 bg-white/10 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-white/10 backdrop-blur-sm opacity-0 group:hover .opacity-100 transition-opacity duration-300 flex items-center justify-center">
                     <span className="text-white font-medium bg-black/30 px-6 py-2 rounded-full backdrop-blur-sm">
                       View Collection
                     </span>

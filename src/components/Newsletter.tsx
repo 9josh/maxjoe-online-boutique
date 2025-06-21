@@ -18,9 +18,9 @@ const Newsletter = () => {
           <Input 
             type="email" 
             placeholder="Enter your email address"
-            className="bg-white/10 border-white/20 text-white placeholder:text-gray-300 focus:border-white/40 flex-1"
+            className="input bg-white/10 border-white/20 text-white placeholder:text-gray-300 hover:border-white/40 flex-1"
           />
-          <Button className="bg-white text-gray-900 hover:bg-gray-100 font-medium px-6 sm:px-8 w-full sm:w-auto">
+          <Button className="btn btn-primary bg-white text-gray-900 hover:bg-gray-100 font-medium px-6 sm:px-8 w-full sm:w-auto">
             Subscribe
           </Button>
         </div>
