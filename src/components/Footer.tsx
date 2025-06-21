@@ -1,4 +1,3 @@
-
 const Footer = () => {
   const footerLinks = {
     shop: [
@@ -23,38 +22,38 @@ const Footer = () => {
 
   return (
     <footer className="footer">
-      <div className="footer-content">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="section-container padding-vertical-xl sm\:padding-vertical-2xl">
+        <div className="grid-layout grid-1 sm\:grid-2 lg\:grid-4 gap-xl">
           {/* Brand */}
-          <div className="lg:col-span-1 text-center sm:text-left">
-            <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4">MaxJoe</h3>
-            <p className="text-gray-600 mb-6 leading-relaxed text-sm sm:text-base">
+          <div className="text-center sm\:text-left">
+            <h3 className="subheading-lg sm\:subheading-xl font-bold text-primary margin-bottom-base">MaxJoe</h3>
+            <p className="text-secondary margin-bottom-lg line-height-relaxed body-sm sm\:body-base">
               Crafting timeless luxury jewelry since 1985. Each piece represents our commitment 
               to exceptional quality and elegant design.
             </p>
-            <div className="flex space-x-4 justify-center sm:justify-start">
-              <a href="#" className="text-gray-400 hover:text-gray-600 transition-colors">
-                <span className="sr-only">Facebook</span>
-                <div className="w-6 h-6 bg-gray-400 rounded"></div>
+            <div className="flex-start space-horizontal-base flex-center sm\:flex-start">
+              <a href="#" className="text-light hover\:text-secondary transition-colors">
+                <span className="visually-hidden">Facebook</span>
+                <div className="size-6 bg-light rounded"></div>
               </a>
-              <a href="#" className="text-gray-400 hover:text-gray-600 transition-colors">
-                <span className="sr-only">Instagram</span>
-                <div className="w-6 h-6 bg-gray-400 rounded"></div>
+              <a href="#" className="text-light hover\:text-secondary transition-colors">
+                <span className="visually-hidden">Instagram</span>
+                <div className="size-6 bg-light rounded"></div>
               </a>
-              <a href="#" className="text-gray-400 hover:text-gray-600 transition-colors">
-                <span className="sr-only">Twitter</span>
-                <div className="w-6 h-6 bg-gray-400 rounded"></div>
+              <a href="#" className="text-light hover\:text-secondary transition-colors">
+                <span className="visually-hidden">Twitter</span>
+                <div className="size-6 bg-light rounded"></div>
               </a>
             </div>
           </div>
 
           {/* Shop Links */}
-          <div className="text-center sm:text-left">
-            <h4 className="text-sm font-semibold text-gray-800 uppercase tracking-wider mb-4">Shop</h4>
-            <ul className="space-y-3">
+          <div className="text-center sm\:text-left">
+            <h4 className="body-sm font-semibold text-primary text-uppercase letter-spacing-wider margin-bottom-base">Shop</h4>
+            <ul className="space-vertical-sm">
               {footerLinks.shop.map((link) => (
                 <li key={link.name}>
-                  <a href={link.href} className="text-gray-600 hover:text-gray-800 transition-colors text-sm sm:text-base">
+                  <a href={link.href} className="text-secondary hover\:text-primary transition-colors body-sm sm\:body-base">
                     {link.name}
                   </a>
                 </li>
@@ -63,12 +62,12 @@ const Footer = () => {
           </div>
 
           {/* Support Links */}
-          <div className="text-center sm:text-left">
-            <h4 className="text-sm font-semibold text-gray-800 uppercase tracking-wider mb-4">Support</h4>
-            <ul className="space-y-3">
+          <div className="text-center sm\:text-left">
+            <h4 className="body-sm font-semibold text-primary text-uppercase letter-spacing-wider margin-bottom-base">Support</h4>
+            <ul className="space-vertical-sm">
               {footerLinks.support.map((link) => (
                 <li key={link.name}>
-                  <a href={link.href} className="text-gray-600 hover:text-gray-800 transition-colors text-sm sm:text-base">
+                  <a href={link.href} className="text-secondary hover\:text-primary transition-colors body-sm sm\:body-base">
                     {link.name}
                   </a>
                 </li>
@@ -77,12 +76,12 @@ const Footer = () => {
           </div>
 
           {/* Company Links */}
-          <div className="text-center sm:text-left">
-            <h4 className="text-sm font-semibold text-gray-800 uppercase tracking-wider mb-4">Company</h4>
-            <ul className="space-y-3">
+          <div className="text-center sm\:text-left">
+            <h4 className="body-sm font-semibold text-primary text-uppercase letter-spacing-wider margin-bottom-base">Company</h4>
+            <ul className="space-vertical-sm">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
-                  <a href={link.href} className="text-gray-600 hover:text-gray-800 transition-colors text-sm sm:text-base">
+                  <a href={link.href} className="text-secondary hover\:text-primary transition-colors body-sm sm\:body-base">
                     {link.name}
                   </a>
                 </li>
@@ -91,15 +90,15 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-200 mt-8 sm:mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
-          <p className="text-gray-500 text-xs sm:text-sm">
+        <div className="border-top border-base margin-top-xl sm\:margin-top-2xl padding-top-xl flex-column md\:flex-row flex-center md\:flex-between text-center md\:text-left">
+          <p className="text-muted body-xs sm\:body-sm">
             © 2024 MaxJoe Luxury Jewelry. All rights reserved.
           </p>
-          <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-6 mt-4 md:mt-0">
-            <a href="/privacy" className="text-gray-500 hover:text-gray-700 text-xs sm:text-sm transition-colors">
+          <div className="flex-column sm\:flex-row space-vertical-sm sm\:space-horizontal-lg margin-top-base md\:margin-top-none">
+            <a href="/privacy" className="text-muted hover\:text-primary-light body-xs sm\:body-sm transition-colors">
               Privacy Policy
             </a>
-            <a href="/terms" className="text-gray-500 hover:text-gray-700 text-xs sm:text-sm transition-colors">
+            <a href="/terms" className="text-muted hover\:text-primary-light body-xs sm\:body-sm transition-colors">
               Terms of Service
             </a>
           </div>

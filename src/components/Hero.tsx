@@ -12,23 +12,23 @@ const Hero = () => {
       
       {/* Content */}
       <div className="hero-content">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-gray-800 mb-6 tracking-wide">
+        <h1 className="heading-md sm\:heading-lg md\:heading-xl lg\:heading-hero text-primary margin-bottom-lg letter-spacing-wide">
           Timeless
-          <span className="block font-extralight text-gray-600 text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-2">
+          <span className="display-block font-extralight text-secondary heading-sm sm\:heading-md md\:heading-lg lg\:heading-xl margin-top-sm">
             Luxury
           </span>
         </h1>
         
-        <p className="text-lg sm:text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed px-4">
+        <p className="body-lg sm\:subheading-lg text-secondary margin-bottom-xl container-small margin-auto line-height-relaxed padding-horizontal-base">
           Discover our exquisite collection of handcrafted jewelry. 
           Each piece tells a story of elegance, sophistication, and timeless beauty.
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-4 justify-center px-4">
+        <div className="flex-column sm\:flex-row gap-base flex-center padding-horizontal-base">
           <Link to="/collections">
             <Button 
               size="lg" 
-              className="btn btn-primary px-6 sm:px-8 py-3 text-base sm:text-lg font-medium w-full sm:w-auto"
+              className="btn btn-primary padding-horizontal-lg sm\:padding-horizontal-xl padding-vertical-sm body-base sm\:subheading-lg font-medium layout-full-width sm\:width-auto"
             >
               Explore Collection
             </Button>
@@ -36,7 +36,7 @@ const Hero = () => {
           <Button 
             variant="outline" 
             size="lg" 
-            className="btn btn-outline px-6 sm:px-8 py-3 text-base sm:text-lg font-medium w-full sm:w-auto"
+            className="btn btn-outline padding-horizontal-lg sm\:padding-horizontal-xl padding-vertical-sm body-base sm\:subheading-lg font-medium layout-full-width sm\:width-auto"
           >
             Watch Our Story
           </Button>
@@ -44,8 +44,8 @@ const Hero = () => {
       </div>
       
       {/* Decorative elements */}
-      <div className="absolute top-20 left-4 sm:left-10 w-24 h-24 sm:w-32 sm:h-32 bg-white/30 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 right-4 sm:right-10 w-32 h-32 sm:w-40 sm:h-40 bg-gray-200/40 rounded-full blur-3xl"></div>
+      <div className="position-absolute size-24 sm\:size-32 bg-semi-transparent rounded-full blur-strong" style={{top: '5rem', left: '1rem'}}></div>
+      <div className="position-absolute size-32 sm\:size-40 bg-glass rounded-full blur-strong" style={{bottom: '5rem', right: '1rem'}}></div>
     </section>
   );
 };

@@ -18,24 +18,24 @@ const Header = () => {
 
   return (
     <header className="header">
-      <div className="header-content">
-        <div className="header-inner">
+      <div className="section-container">
+        <div className="flex-between padding-vertical-base">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/">
-              <h1 className="logo text-xl sm:text-2xl">
+              <h1 className="logo sm\:subheading-lg">
                 MaxJoe
               </h1>
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="nav space-x-6 lg:space-x-8">
+          <nav className="md\:display-flex space-horizontal-lg lg\:space-horizontal-xl display-hidden">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
-                className="nav-link text-sm lg:text-base"
+                className="nav-link body-sm lg\:body-base"
               >
                 {item.name}
               </Link>
@@ -43,22 +43,22 @@ const Header = () => {
           </nav>
 
           {/* Actions */}
-          <div className="flex items-center space-x-2 sm:space-x-4">
+          <div className="flex-start space-horizontal-sm sm\:space-horizontal-base">
             <Button
               variant="ghost"
               size="sm"
               onClick={() => setIsSearchOpen(!isSearchOpen)}
-              className="btn btn-ghost p-2"
+              className="btn btn-ghost padding-sm"
             >
-              <Search className="w-4 h-4 sm:w-5 sm:h-5" />
+              <Search className="size-4 sm\:size-5" />
             </Button>
-            <Button variant="ghost" size="sm" className="btn btn-ghost p-2">
-              <User className="w-4 h-4 sm:w-5 sm:h-5" />
+            <Button variant="ghost" size="sm" className="btn btn-ghost padding-sm">
+              <User className="size-4 sm\:size-5" />
             </Button>
             <Link to="/cart">
-              <Button variant="ghost" size="sm" className="btn btn-ghost relative p-2">
-                <ShoppingCart className="w-4 h-4 sm:w-5 sm:h-5" />
-                <span className="absolute -top-1 -right-1 bg-gray-800 text-white text-xs rounded-full w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center">
+              <Button variant="ghost" size="sm" className="btn btn-ghost position-relative padding-sm">
+                <ShoppingCart className="size-4 sm\:size-5" />
+                <span className="position-absolute bg-primary text-white body-xs rounded-full size-4 sm\:size-5 flex-center" style={{top: '-0.25rem', right: '-0.25rem'}}>
                   2
                 </span>
               </Button>
@@ -67,17 +67,17 @@ const Header = () => {
             {/* Mobile Menu */}
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="sm" className="btn btn-ghost md:hidden p-2">
-                  <Menu className="w-5 h-5" />
+                <Button variant="ghost" size="sm" className="btn btn-ghost md\:display-hidden padding-sm">
+                  <Menu className="size-5" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-80">
-                <nav className="flex flex-col space-y-4 mt-8">
+              <SheetContent side="right" className="size-80">
+                <nav className="flex-column space-vertical-base margin-top-xl">
                   {navigation.map((item) => (
                     <Link
                       key={item.name}
                       to={item.href}
-                      className="text-gray-700 hover:text-gray-900 font-medium py-3 border-b border-gray-100 text-lg"
+                      className="text-primary-light hover\:text-primary font-medium padding-vertical-sm border-bottom border-light subheading-lg"
                     >
                       {item.name}
                     </Link>
@@ -90,14 +90,15 @@ const Header = () => {
 
         {/* Search Bar */}
         {isSearchOpen && (
-          <div className="py-4 border-t border-gray-100">
-            <div className="relative max-w-md mx-auto">
+          <div className="padding-vertical-base border-top border-light">
+            <div className="position-relative container-xs margin-auto">
               <Input
                 type="text"
                 placeholder="Search luxury jewelry..."
-                className="input pl-10 bg-gray-50 border-gray-200 hover:border-gray-400"
+                className="input padding-left-xl bg-light border-base hover\:border-dark"
+                style={{paddingLeft: '2.5rem'}}
               />
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <Search className="position-absolute size-4 text-muted" style={{left: '0.75rem', top: '50%', transform: 'translateY(-50%)'}} />
             </div>
           </div>
         )}

@@ -32,40 +32,40 @@ const Collections = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+    <div className="page-container">
       <Header />
-      <main className="pt-8">
-        <div className="max-w-7xl mx-auto px-4 py-8">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl sm:text-5xl font-light text-gray-800 mb-4">
+      <main className="padding-top-xl">
+        <div className="section-container padding-vertical-xl">
+          <div className="text-center margin-bottom-2xl">
+            <h1 className="heading-md sm\:heading-lg font-light text-primary margin-bottom-base">
               Our Collections
             </h1>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="body-lg text-secondary container-small margin-auto">
               Explore our carefully curated collections, each telling a unique story of craftsmanship and elegance.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid-layout grid-1 md\:grid-2 gap-xl">
             {collections.map((collection, index) => (
               <div key={collection.name} className="group cursor-pointer">
-                <div className="relative overflow-hidden rounded-lg bg-white shadow-lg hover:shadow-xl transition-all duration-500 group:hover .-translate-y-2">
+                <div className="position-relative overflow-hidden rounded-lg bg-white shadow-lg hover\:shadow-xl transition-base translate-up-hover">
                   <AspectRatio ratio={4/3}>
                     <img
                       src={collection.image}
                       alt={collection.name}
-                      className="w-full h-full object-cover group:hover .scale-105 transition-transform duration-700"
+                      className="layout-full-width layout-full-height object-cover scale-hover transition-slower"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                    <div className="position-absolute position-full bg-gradient-strong-overlay"></div>
                   </AspectRatio>
                   
-                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                    <h3 className="text-2xl font-semibold mb-2">{collection.name}</h3>
-                    <p className="text-gray-200 mb-2">{collection.description}</p>
-                    <p className="text-sm text-gray-300">{collection.itemCount} pieces</p>
+                  <div className="position-absolute position-bottom position-left position-right padding-lg text-white">
+                    <h3 className="heading-xs font-semibold margin-bottom-sm">{collection.name}</h3>
+                    <p className="text-lightest margin-bottom-sm">{collection.description}</p>
+                    <p className="body-sm text-lighter">{collection.itemCount} pieces</p>
                   </div>
                   
-                  <div className="absolute inset-0 bg-white/10 backdrop-blur-sm opacity-0 group:hover .opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="text-white font-medium bg-black/30 px-6 py-2 rounded-full backdrop-blur-sm">
+                  <div className="position-absolute position-full bg-semi-transparent backdrop-blur-sm opacity-0 group:hover .opacity-100 transition-smooth flex-center">
+                    <span className="text-white font-medium bg-glass-dark padding-horizontal-lg padding-vertical-sm rounded-full backdrop-blur-sm">
                       View Collection
                     </span>
                   </div>

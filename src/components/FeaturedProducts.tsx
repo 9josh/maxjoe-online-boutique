@@ -35,44 +35,44 @@ const FeaturedProducts = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-20 px-4 bg-gray-50">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl font-light text-gray-800 mb-4">Featured Pieces</h2>
-          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
+    <section className="padding-vertical-2xl sm\:padding-vertical-3xl padding-horizontal-base bg-light">
+      <div className="section-container">
+        <div className="text-center margin-bottom-2xl sm\:margin-bottom-3xl">
+          <h2 className="heading-sm sm\:heading-md font-light text-primary margin-bottom-base">Featured Pieces</h2>
+          <p className="body-base sm\:body-lg text-secondary container-small margin-auto padding-horizontal-base">
             Handpicked selections from our master jewelers, each piece representing 
             the pinnacle of luxury and craftsmanship.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div className="grid-layout grid-1 sm\:grid-2 lg\:grid-4 gap-base sm\:gap-lg">
           {products.map((product, index) => (
             <div 
               key={product.id} 
-              className="group bg-white rounded-lg shadow-sm hover:shadow-lg transition-all duration-300"
+              className="group bg-white rounded-lg shadow-sm hover\:shadow-lg transition-smooth"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="relative overflow-hidden rounded-t-lg">
+              <div className="position-relative overflow-hidden rounded-top-lg">
                 <AspectRatio ratio={1}>
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-full object-cover group:hover .scale-105 transition-transform duration-500"
+                    className="layout-full-width layout-full-height object-cover scale-hover transition-slower"
                   />
                 </AspectRatio>
-                <div className="absolute top-3 right-3 opacity-0 group:hover .opacity-100 transition-opacity">
-                  <Button size="sm" variant="secondary" className="btn btn-secondary bg-white/90 hover:bg-white text-xs sm:text-sm">
+                <div className="position-absolute position-top position-right padding-sm opacity-0 group:hover .opacity-100 transition-base">
+                  <Button size="sm" variant="secondary" className="btn btn-secondary bg-glass hover\:bg-white body-xs sm\:body-sm">
                     Quick View
                   </Button>
                 </div>
               </div>
               
-              <div className="p-4 sm:p-6">
-                <div className="text-xs sm:text-sm text-gray-500 mb-2">{product.category}</div>
-                <h3 className="text-base sm:text-lg font-medium text-gray-800 mb-2 leading-tight">{product.name}</h3>
-                <div className="flex items-center justify-between flex-wrap gap-2">
-                  <span className="text-lg sm:text-xl font-semibold text-gray-900">{product.price}</span>
-                  <Button size="sm" className="btn btn-primary text-xs sm:text-sm px-3 sm:px-4">
+              <div className="padding-base sm\:padding-lg">
+                <div className="body-xs sm\:body-sm text-muted margin-bottom-sm">{product.category}</div>
+                <h3 className="body-base sm\:subheading-lg font-medium text-primary margin-bottom-sm line-height-tight">{product.name}</h3>
+                <div className="flex-between flex-wrap gap-sm">
+                  <span className="subheading-lg sm\:subheading-xl font-semibold text-primary">{product.price}</span>
+                  <Button size="sm" className="btn btn-primary body-xs sm\:body-sm padding-horizontal-sm sm\:padding-horizontal-base">
                     Add to Cart
                   </Button>
                 </div>
@@ -81,8 +81,8 @@ const FeaturedProducts = () => {
           ))}
         </div>
 
-        <div className="text-center mt-8 sm:mt-12">
-          <Button size="lg" variant="outline" className="btn btn-outline w-full sm:w-auto">
+        <div className="text-center margin-top-xl sm\:margin-top-2xl">
+          <Button size="lg" variant="outline" className="btn btn-outline layout-full-width sm\:width-auto">
             View All Products
           </Button>
         </div>

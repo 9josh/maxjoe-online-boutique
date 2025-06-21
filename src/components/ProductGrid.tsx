@@ -26,25 +26,25 @@ const ProductGrid = ({ products }: ProductGridProps) => {
               alt={product.name}
               className="product-img"
             />
-            <div className="absolute top-4 right-4 opacity-0 group:hover .opacity-100 transition-opacity duration-300">
+            <div className="position-absolute opacity-0 group:hover .opacity-100 transition-smooth" style={{top: '1rem', right: '1rem'}}>
               <Button
                 variant="ghost"
                 size="sm"
-                className="btn btn-ghost bg-white/80 backdrop-blur-sm hover:bg-white text-gray-700 w-10 h-10 p-0"
+                className="btn btn-ghost bg-glass hover\:bg-white text-primary-light size-10 padding-none"
               >
-                <Heart className="w-4 h-4" />
+                <Heart className="size-4" />
               </Button>
             </div>
-            <div className="absolute inset-0 bg-black/20 opacity-0 group:hover .opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <div className="position-absolute position-full bg-overlay opacity-0 group:hover .opacity-100 transition-smooth flex-center">
               <Button className="btn btn-primary">
-                <ShoppingCart className="w-4 h-4 mr-2" />
+                <ShoppingCart className="size-4 margin-right-sm" />
                 Add to Cart
               </Button>
             </div>
           </div>
-          <CardContent className="card-content p-4">
-            <h3 className="font-medium text-gray-800 mb-2 line-clamp-2">{product.name}</h3>
-            <p className="text-lg font-semibold text-gray-900">${product.price.toLocaleString()}</p>
+          <CardContent className="card-content padding-base">
+            <h3 className="font-medium text-primary margin-bottom-sm text-truncate-2">{product.name}</h3>
+            <p className="subheading-lg font-semibold text-primary">${product.price.toLocaleString()}</p>
           </CardContent>
         </Card>
       ))}

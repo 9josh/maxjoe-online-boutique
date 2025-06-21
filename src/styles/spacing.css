@@ -1,231 +1,203 @@
 
 /* Spacing utilities */
-.p-0 {
+.spacing-none {
   padding: 0;
+  margin: 0;
 }
 
-.p-1 {
+.padding-xs {
   padding: 0.25rem;
 }
 
-.p-2 {
+.padding-sm {
   padding: 0.5rem;
 }
 
-.p-3 {
-  padding: 0.75rem;
-}
-
-.p-4 {
+.padding-base {
   padding: 1rem;
 }
 
-.p-6 {
+.padding-lg {
   padding: 1.5rem;
 }
 
-.p-8 {
+.padding-xl {
   padding: 2rem;
 }
 
-.px-3 {
+.padding-horizontal-sm {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
 }
 
-.px-4 {
+.padding-horizontal-base {
   padding-left: 1rem;
   padding-right: 1rem;
 }
 
-.px-6 {
+.padding-horizontal-lg {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
 
-.px-8 {
+.padding-horizontal-xl {
   padding-left: 2rem;
   padding-right: 2rem;
 }
 
-.py-2 {
+.padding-vertical-sm {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
 
-.py-3 {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-}
-
-.py-4 {
+.padding-vertical-base {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
 
-.py-8 {
+.padding-vertical-lg {
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
 
-.py-12 {
+.padding-vertical-xl {
   padding-top: 3rem;
   padding-bottom: 3rem;
 }
 
-.py-16 {
+.padding-vertical-2xl {
   padding-top: 4rem;
   padding-bottom: 4rem;
 }
 
-.py-20 {
+.padding-vertical-3xl {
   padding-top: 5rem;
   padding-bottom: 5rem;
 }
 
-.pt-8 {
-  padding-top: 2rem;
+.margin-auto {
+  margin: 0 auto;
 }
 
-.pt-3 {
-  padding-top: 0.75rem;
-}
-
-.pb-8 {
-  padding-bottom: 2rem;
-}
-
-.pl-3 {
-  padding-left: 0.75rem;
-}
-
-.pl-10 {
-  padding-left: 2.5rem;
-}
-
-.pr-2 {
-  padding-right: 0.5rem;
-}
-
-.m-0 {
-  margin: 0;
-}
-
-.mb-2 {
+.margin-bottom-sm {
   margin-bottom: 0.5rem;
 }
 
-.mb-4 {
+.margin-bottom-base {
   margin-bottom: 1rem;
 }
 
-.mb-6 {
+.margin-bottom-lg {
   margin-bottom: 1.5rem;
 }
 
-.mb-8 {
+.margin-bottom-xl {
   margin-bottom: 2rem;
 }
 
-.mb-12 {
+.margin-bottom-2xl {
   margin-bottom: 3rem;
 }
 
-.mb-16 {
+.margin-bottom-3xl {
   margin-bottom: 4rem;
 }
 
-.mt-2 {
+.margin-top-sm {
   margin-top: 0.5rem;
 }
 
-.mt-4 {
+.margin-top-base {
   margin-top: 1rem;
 }
 
-.mt-6 {
+.margin-top-lg {
   margin-top: 1.5rem;
 }
 
-.mt-8 {
+.margin-top-xl {
   margin-top: 2rem;
 }
 
-.mt-12 {
+.margin-top-2xl {
   margin-top: 3rem;
 }
 
-.ml-2 {
+.gap-sm {
+  gap: 0.5rem;
+}
+
+.gap-base {
+  gap: 1rem;
+}
+
+.gap-lg {
+  gap: 1.5rem;
+}
+
+.gap-xl {
+  gap: 2rem;
+}
+
+.space-horizontal-sm > :not([hidden]) ~ :not([hidden]) {
   margin-left: 0.5rem;
 }
 
-.ml-auto {
-  margin-left: auto;
-}
-
-.mr-2 {
-  margin-right: 0.5rem;
-}
-
-.space-x-2 > :not([hidden]) ~ :not([hidden]) {
-  margin-left: 0.5rem;
-}
-
-.space-x-4 > :not([hidden]) ~ :not([hidden]) {
+.space-horizontal-base > :not([hidden]) ~ :not([hidden]) {
   margin-left: 1rem;
 }
 
-.space-x-6 > :not([hidden]) ~ :not([hidden]) {
+.space-horizontal-lg > :not([hidden]) ~ :not([hidden]) {
   margin-left: 1.5rem;
 }
 
-.space-y-3 > :not([hidden]) ~ :not([hidden]) {
+.space-vertical-sm > :not([hidden]) ~ :not([hidden]) {
   margin-top: 0.75rem;
 }
 
-.space-y-4 > :not([hidden]) ~ :not([hidden]) {
+.space-vertical-base > :not([hidden]) ~ :not([hidden]) {
   margin-top: 1rem;
 }
 
-.space-y-6 > :not([hidden]) ~ :not([hidden]) {
+.space-vertical-lg > :not([hidden]) ~ :not([hidden]) {
   margin-top: 1.5rem;
 }
 
 /* Responsive spacing */
 @media (min-width: 640px) {
-  .sm\:px-6 {
+  .sm\:padding-horizontal-lg {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
-  .sm\:px-8 {
+  .sm\:padding-horizontal-xl {
     padding-left: 2rem;
     padding-right: 2rem;
   }
-  .sm\:py-16 {
+  .sm\:padding-vertical-2xl {
     padding-top: 4rem;
     padding-bottom: 4rem;
   }
-  .sm\:py-20 {
+  .sm\:padding-vertical-3xl {
     padding-top: 5rem;
     padding-bottom: 5rem;
   }
-  .sm\:mb-16 {
+  .sm\:margin-bottom-3xl {
     margin-bottom: 4rem;
   }
-  .sm\:space-x-6 > :not([hidden]) ~ :not([hidden]) {
-    margin-left: 1.5rem;
+  .sm\:gap-lg {
+    gap: 1.5rem;
   }
-  .sm\:space-y-0 > :not([hidden]) ~ :not([hidden]) {
-    margin-top: 0;
-  }
-  .sm\:space-x-2 > :not([hidden]) ~ :not([hidden]) {
-    margin-left: 0.5rem;
+  .sm\:gap-xl {
+    gap: 2rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .lg\:px-8 {
+  .lg\:padding-horizontal-xl {
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+  .lg\:space-horizontal-xl > :not([hidden]) ~ :not([hidden]) {
+    margin-left: 2rem;
   }
 }

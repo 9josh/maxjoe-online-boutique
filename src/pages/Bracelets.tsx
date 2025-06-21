@@ -36,15 +36,15 @@ const Bracelets = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+    <div className="page-container">
       <Header />
-      <main className="pt-8">
-        <div className="max-w-7xl mx-auto px-4 py-8">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl sm:text-5xl font-light text-gray-800 mb-4">
+      <main className="padding-top-xl">
+        <div className="section-container padding-vertical-xl">
+          <div className="text-center margin-bottom-2xl">
+            <h1 className="heading-md sm\:heading-lg font-light text-primary margin-bottom-base">
               Designer Bracelets
             </h1>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="body-lg text-secondary container-small margin-auto">
               Elegant accessories for the discerning individual. Our bracelet collection offers sophisticated style for every occasion.
             </p>
           </div>

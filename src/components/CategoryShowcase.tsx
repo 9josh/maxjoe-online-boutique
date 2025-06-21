@@ -25,16 +25,16 @@ const CategoryShowcase = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-20 px-4 max-w-7xl mx-auto">
-      <div className="text-center mb-12 sm:mb-16">
-        <h2 className="text-3xl sm:text-4xl font-light text-gray-800 mb-4">Our Collections</h2>
-        <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
+    <section className="padding-vertical-2xl sm\:padding-vertical-3xl padding-horizontal-base section-container">
+      <div className="text-center margin-bottom-2xl sm\:margin-bottom-3xl">
+        <h2 className="heading-sm sm\:heading-md font-light text-primary margin-bottom-base">Our Collections</h2>
+        <p className="body-base sm\:body-lg text-secondary container-small margin-auto padding-horizontal-base">
           Explore our carefully curated collections, each piece selected for its exceptional 
           craftsmanship and timeless appeal.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      <div className="grid-layout grid-1 md\:grid-2 lg\:grid-3 gap-lg sm\:gap-xl">
         {categories.map((category, index) => (
           <Link 
             key={category.name}
@@ -42,24 +42,24 @@ const CategoryShowcase = () => {
             className="group cursor-pointer"
             style={{ animationDelay: `${index * 0.1}s` }}
           >
-            <div className="relative overflow-hidden rounded-lg bg-white shadow-lg hover:shadow-xl transition-all duration-500 group:hover .-translate-y-2">
+            <div className="position-relative overflow-hidden rounded-lg bg-white shadow-lg hover\:shadow-xl transition-base translate-up-hover">
               <AspectRatio ratio={1}>
                 <img
                   src={category.image}
                   alt={category.name}
-                  className="w-full h-full object-cover group:hover .scale-105 transition-transform duration-700"
+                  className="layout-full-width layout-full-height object-cover scale-hover transition-slower"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+                <div className="position-absolute position-full bg-gradient-overlay"></div>
               </AspectRatio>
               
-              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white">
-                <h3 className="text-lg sm:text-xl font-semibold mb-2">{category.name}</h3>
-                <p className="text-sm text-gray-200 opacity-90 leading-relaxed">{category.description}</p>
+              <div className="position-absolute position-bottom position-left position-right padding-base sm\:padding-lg text-white">
+                <h3 className="subheading-lg sm\:subheading-xl font-semibold margin-bottom-sm">{category.name}</h3>
+                <p className="body-sm text-lightest opacity-90 line-height-relaxed">{category.description}</p>
               </div>
               
               {/* Glass overlay effect */}
-              <div className="absolute inset-0 bg-white/10 backdrop-blur-sm opacity-0 group:hover .opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <span className="text-white font-medium bg-black/30 px-4 sm:px-6 py-2 rounded-full backdrop-blur-sm text-sm sm:text-base">
+              <div className="position-absolute position-full bg-semi-transparent backdrop-blur-sm opacity-0 group:hover .opacity-100 transition-smooth flex-center">
+                <span className="text-white font-medium bg-glass-dark padding-horizontal-base sm\:padding-horizontal-lg padding-vertical-sm rounded-full backdrop-blur-sm body-sm sm\:body-base">
                   Explore Collection
                 </span>
               </div>

@@ -3,61 +3,61 @@
 
 /* Small screens (640px and up) */
 @media (min-width: 640px) {
-  .sm\:block {
+  .sm\:display-block {
     display: block;
   }
-  .sm\:flex {
+  .sm\:display-flex {
     display: flex;
   }
-  .sm\:hidden {
+  .sm\:display-hidden {
     display: none;
   }
-  .sm\:max-w-sm {
+  .sm\:container-small {
     max-width: 24rem;
   }
 }
 
 /* Medium screens (768px and up) */
 @media (min-width: 768px) {
-  .md\:block {
+  .md\:display-block {
     display: block;
   }
-  .md\:flex {
+  .md\:display-flex {
     display: flex;
   }
-  .md\:hidden {
+  .md\:display-hidden {
     display: none;
   }
-  .md\:absolute {
+  .md\:position-absolute {
     position: absolute;
   }
-  .md\:w-auto {
+  .md\:width-auto {
     width: auto;
   }
 }
 
 /* Large screens (1024px and up) */
 @media (min-width: 1024px) {
-  .lg\:block {
+  .lg\:display-block {
     display: block;
   }
-  .lg\:flex {
+  .lg\:display-flex {
     display: flex;
   }
-  .lg\:hidden {
+  .lg\:display-hidden {
     display: none;
   }
 }
 
 /* Extra large screens (1280px and up) */
 @media (min-width: 1280px) {
-  .xl\:block {
+  .xl\:display-block {
     display: block;
   }
-  .xl\:flex {
+  .xl\:display-flex {
     display: flex;
   }
-  .xl\:hidden {
+  .xl\:display-hidden {
     display: none;
   }
 }

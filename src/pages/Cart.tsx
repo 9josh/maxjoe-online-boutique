@@ -42,88 +42,88 @@ const Cart = () => {
   const total = subtotal + shipping;
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+    <div className="page-container">
       <Header />
-      <main className="pt-8">
-        <div className="max-w-4xl mx-auto px-4 py-8">
-          <h1 className="text-3xl sm:text-4xl font-light text-gray-800 mb-8">
+      <main className="padding-top-xl">
+        <div className="container-medium margin-auto padding-horizontal-base padding-vertical-xl">
+          <h1 className="heading-sm sm\:heading-md font-light text-primary margin-bottom-xl">
             Shopping Cart
           </h1>
           
           {cartItems.length === 0 ? (
-            <div className="text-center py-16">
-              <p className="text-xl text-gray-600 mb-6">Your cart is empty</p>
+            <div className="text-center padding-vertical-2xl">
+              <p className="subheading-lg text-secondary margin-bottom-lg">Your cart is empty</p>
               <Button className="btn btn-primary">
                 Continue Shopping
               </Button>
             </div>
           ) : (
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              <div className="lg:col-span-2">
-                <div className="space-y-6">
+            <div className="grid-layout grid-1 lg\:grid-3 gap-xl">
+              <div className="lg\:col-span-2">
+                <div className="space-vertical-lg">
                   {cartItems.map((item) => (
-                    <div key={item.id} className="flex items-center space-x-4 bg-white p-6 rounded-lg shadow-sm">
+                    <div key={item.id} className="flex-start space-horizontal-base bg-white padding-lg rounded-lg shadow-sm">
                       <img
                         src={item.image}
                         alt={item.name}
-                        className="w-20 h-20 object-cover rounded-md"
+                        className="size-20 object-cover rounded-md"
                       />
-                      <div className="flex-1">
-                        <h3 className="text-lg font-medium text-gray-800">{item.name}</h3>
-                        <p className="text-gray-600">${item.price.toLocaleString()}</p>
+                      <div className="flex-grow">
+                        <h3 className="subheading-lg font-medium text-primary">{item.name}</h3>
+                        <p className="text-secondary">${item.price.toLocaleString()}</p>
                       </div>
-                      <div className="flex items-center space-x-2">
+                      <div className="flex-start space-horizontal-sm">
                         <Button
                           variant="outline"
                           size="sm"
                           onClick={() => updateQuantity(item.id, -1)}
-                          className="btn btn-outline w-8 h-8 p-0"
+                          className="btn btn-outline size-8 padding-none"
                         >
-                          <Minus className="w-4 h-4" />
+                          <Minus className="size-4" />
                         </Button>
-                        <span className="w-8 text-center">{item.quantity}</span>
+                        <span className="size-8 text-center">{item.quantity}</span>
                         <Button
                           variant="outline"
                           size="sm"
                           onClick={() => updateQuantity(item.id, 1)}
-                          className="btn btn-outline w-8 h-8 p-0"
+                          className="btn btn-outline size-8 padding-none"
                         >
-                          <Plus className="w-4 h-4" />
+                          <Plus className="size-4" />
                         </Button>
                       </div>
                       <Button
                         variant="ghost"
                         size="sm"
                         onClick={() => removeItem(item.id)}
-                        className="btn btn-ghost text-red-500 hover:text-red-700 p-2"
+                        className="btn btn-ghost text-error hover\:text-error-dark padding-sm"
                       >
-                        <Trash2 className="w-4 h-4" />
+                        <Trash2 className="size-4" />
                       </Button>
                     </div>
                   ))}
                 </div>
               </div>
               
-              <div className="lg:col-span-1">
-                <div className="bg-white p-6 rounded-lg shadow-sm">
-                  <h3 className="text-lg font-semibold text-gray-800 mb-4">Order Summary</h3>
-                  <div className="space-y-3">
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Subtotal</span>
-                      <span className="text-gray-800">${subtotal.toLocaleString()}</span>
+              <div>
+                <div className="bg-white padding-lg rounded-lg shadow-sm">
+                  <h3 className="subheading-lg font-semibold text-primary margin-bottom-base">Order Summary</h3>
+                  <div className="space-vertical-sm">
+                    <div className="flex-between">
+                      <span className="text-secondary">Subtotal</span>
+                      <span className="text-primary">${subtotal.toLocaleString()}</span>
                     </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Shipping</span>
-                      <span className="text-gray-800">Free</span>
+                    <div className="flex-between">
+                      <span className="text-secondary">Shipping</span>
+                      <span className="text-primary">Free</span>
                     </div>
-                    <div className="border-t pt-3">
-                      <div className="flex justify-between text-lg font-semibold">
+                    <div className="border-top border-base padding-top-sm">
+                      <div className="flex-between subheading-lg font-semibold">
                         <span>Total</span>
                         <span>${total.toLocaleString()}</span>
                       </div>
                     </div>
                   </div>
-                  <Button className="btn btn-primary w-full mt-6">
+                  <Button className="btn btn-primary layout-full-width margin-top-lg">
                     Proceed to Checkout
                   </Button>
                 </div>

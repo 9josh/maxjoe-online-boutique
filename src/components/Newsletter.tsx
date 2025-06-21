@@ -4,28 +4,28 @@ import { Input } from "@/components/ui/input";
 
 const Newsletter = () => {
   return (
-    <section className="py-16 sm:py-20 px-4 bg-gradient-to-r from-gray-800 to-gray-900">
-      <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-light text-white mb-4">
+    <section className="padding-vertical-2xl sm\:padding-vertical-3xl padding-horizontal-base bg-gradient-dark">
+      <div className="container-medium margin-auto text-center">
+        <h2 className="heading-xs sm\:heading-sm md\:heading-md font-light text-white margin-bottom-base">
           Stay Connected
         </h2>
-        <p className="text-base sm:text-lg text-gray-300 mb-8 max-w-2xl mx-auto px-4">
+        <p className="body-base sm\:body-lg text-lightest margin-bottom-xl container-small margin-auto padding-horizontal-base">
           Be the first to discover our latest collections, exclusive offers, and jewelry insights. 
           Join our community of luxury enthusiasts.
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+        <div className="flex-column sm\:flex-row gap-base container-xs margin-auto">
           <Input 
             type="email" 
             placeholder="Enter your email address"
-            className="input bg-white/10 border-white/20 text-white placeholder:text-gray-300 hover:border-white/40 flex-1"
+            className="input bg-semi-transparent border-lightest text-white placeholder:text-lightest hover\:border-light flex-grow"
           />
-          <Button className="btn btn-primary bg-white text-gray-900 hover:bg-gray-100 font-medium px-6 sm:px-8 w-full sm:w-auto">
+          <Button className="btn btn-primary bg-white text-primary hover\:bg-lighter font-medium padding-horizontal-lg sm\:padding-horizontal-xl layout-full-width sm\:width-auto">
             Subscribe
           </Button>
         </div>
         
-        <p className="text-xs sm:text-sm text-gray-400 mt-4 px-4">
+        <p className="body-xs sm\:body-sm text-light margin-top-base padding-horizontal-base">
           We respect your privacy. Unsubscribe at any time.
         </p>
       </div>
