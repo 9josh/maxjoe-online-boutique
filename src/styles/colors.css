@@ -1,66 +1,279 @@
 
-/* Color utilities */
+/* MaxJoe Luxury Jewelry Color System */
+/* Based on silver, white, grey, and glass-like transparency aesthetic */
+
+:root {
+  /* Core Brand Colors */
+  --silver-primary: #C0C0C0;
+  --silver-light: #E8E8E8;
+  --silver-dark: #A8A8A8;
+  --silver-accent: #B8B8B8;
+  
+  /* White & Off-White Palette */
+  --white-pure: #FFFFFF;
+  --white-off: #FEFEFE;
+  --white-soft: #FCFCFC;
+  --white-cream: #FAFAFA;
+  
+  /* Sophisticated Grey Palette */
+  --grey-charcoal: #2F2F2F;
+  --grey-slate: #4A4A4A;
+  --grey-medium: #6D6D6D;
+  --grey-light: #9A9A9A;
+  --grey-lighter: #CCCCCC;
+  --grey-subtle: #E5E5E5;
+  --grey-whisper: #F5F5F5;
+  
+  /* Glass-like Transparency Effects */
+  --glass-white: rgba(255, 255, 255, 0.85);
+  --glass-silver: rgba(192, 192, 192, 0.15);
+  --glass-grey: rgba(77, 77, 77, 0.08);
+  --glass-overlay: rgba(255, 255, 255, 0.92);
+  
+  /* Accent Colors for Interactive States */
+  --accent-hover: #D4D4D4;
+  --accent-active: #9E9E9E;
+  --accent-focus: rgba(192, 192, 192, 0.3);
+  
+  /* Status Colors (Subtle) */
+  --success-light: #F0F9F0;
+  --success-text: #4A7C59;
+  --error-light: #FDF2F2;
+  --error-text: #B91C1C;
+  --warning-light: #FFFBEB;
+  --warning-text: #92400E;
+}
+
+/* Primary Text Colors */
 .text-primary {
-  color: #1f2937;
+  color: var(--grey-charcoal);
 }
 
 .text-secondary {
-  color: #6b7280;
+  color: var(--grey-medium);
 }
 
 .text-muted {
-  color: #9ca3af;
+  color: var(--grey-light);
 }
 
 .text-light {
-  color: #d1d5db;
+  color: var(--grey-lighter);
+}
+
+.text-subtle {
+  color: var(--grey-subtle);
 }
 
 .text-white {
-  color: #ffffff;
+  color: var(--white-pure);
 }
 
+.text-silver {
+  color: var(--silver-primary);
+}
+
+.text-silver-dark {
+  color: var(--silver-dark);
+}
+
+/* Background Colors */
 .bg-primary {
-  background-color: #667eea;
+  background-color: var(--white-pure);
 }
 
-.bg-light {
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+.bg-secondary {
+  background-color: var(--white-soft);
 }
 
-.bg-white {
-  background-color: #ffffff;
+.bg-subtle {
+  background-color: var(--grey-whisper);
 }
 
-.bg-gradient-primary {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+.bg-silver {
+  background-color: var(--silver-primary);
 }
 
-.bg-gradient-secondary {
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+.bg-silver-light {
+  background-color: var(--silver-light);
 }
 
+.bg-charcoal {
+  background-color: var(--grey-charcoal);
+}
+
+.bg-slate {
+  background-color: var(--grey-slate);
+}
+
+/* Glass Effects */
 .bg-glass {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--glass-white);
   backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
-.bg-overlay {
-  background: rgba(0, 0, 0, 0.3);
+.bg-glass-silver {
+  background: var(--glass-silver);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
-.gradient-text {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+.bg-glass-overlay {
+  background: var(--glass-overlay);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Gradient Backgrounds */
+.bg-gradient-luxury {
+  background: linear-gradient(135deg, var(--white-pure) 0%, var(--silver-light) 100%);
+}
+
+.bg-gradient-silver {
+  background: linear-gradient(135deg, var(--silver-light) 0%, var(--silver-primary) 100%);
+}
+
+.bg-gradient-hero {
+  background: linear-gradient(135deg, var(--white-soft) 0%, var(--grey-whisper) 50%, var(--silver-light) 100%);
+}
+
+.bg-gradient-dark {
+  background: linear-gradient(135deg, var(--grey-charcoal) 0%, var(--grey-slate) 100%);
+}
+
+/* Border Colors */
+.border-primary {
+  border-color: var(--grey-subtle);
+}
+
+.border-secondary {
+  border-color: var(--grey-lighter);
+}
+
+.border-silver {
+  border-color: var(--silver-primary);
+}
+
+.border-silver-light {
+  border-color: var(--silver-light);
+}
+
+.border-glass {
+  border-color: var(--glass-silver);
+}
+
+/* Interactive State Colors */
+.hover-text-silver:hover {
+  color: var(--silver-primary);
+}
+
+.hover-text-primary:hover {
+  color: var(--grey-charcoal);
+}
+
+.hover-bg-silver:hover {
+  background-color: var(--accent-hover);
+}
+
+.hover-bg-glass:hover {
+  background: var(--glass-overlay);
+}
+
+.hover-border-silver:hover {
+  border-color: var(--silver-primary);
+}
+
+.focus-ring-silver:focus {
+  box-shadow: 0 0 0 3px var(--accent-focus);
+}
+
+/* Button Specific Colors */
+.btn-primary-bg {
+  background-color: var(--silver-primary);
+  color: var(--white-pure);
+}
+
+.btn-primary-bg:hover {
+  background-color: var(--accent-hover);
+  box-shadow: 0 4px 12px rgba(192, 192, 192, 0.3);
+}
+
+.btn-secondary-bg {
+  background-color: var(--white-pure);
+  color: var(--silver-primary);
+  border: 1px solid var(--silver-primary);
+}
+
+.btn-secondary-bg:hover {
+  background-color: var(--grey-whisper);
+  border-color: var(--accent-hover);
+}
+
+.btn-ghost-bg {
+  background-color: transparent;
+  color: var(--silver-primary);
+  border: 1px solid var(--silver-light);
+}
+
+.btn-ghost-bg:hover {
+  background: var(--glass-silver);
+  border-color: var(--silver-primary);
+}
+
+/* Shadow Colors */
+.shadow-luxury {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.shadow-silver {
+  box-shadow: 0 4px 16px rgba(192, 192, 192, 0.2);
+}
+
+.shadow-glass {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+}
+
+.shadow-elegant {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+}
+
+/* Status Message Colors */
+.bg-success {
+  background-color: var(--success-light);
+  color: var(--success-text);
+}
+
+.bg-error {
+  background-color: var(--error-light);
+  color: var(--error-text);
+}
+
+.bg-warning {
+  background-color: var(--warning-light);
+  color: var(--warning-text);
+}
+
+/* Specialty Glass Text Effect */
+.text-glass {
+  color: var(--grey-slate);
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.text-luxury {
+  background: linear-gradient(135deg, var(--silver-primary) 0%, var(--grey-slate) 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
 }
 
-/* Hover states */
-.hover-text-primary:hover {
-  color: #1f2937;
+/* Luxury Dividers */
+.divider-silver {
+  border-color: var(--silver-light);
+  opacity: 0.6;
 }
 
-.hover-bg-primary:hover {
-  background-color: #667eea;
+.divider-glass {
+  border-color: var(--glass-silver);
+  backdrop-filter: blur(2px);
 }
