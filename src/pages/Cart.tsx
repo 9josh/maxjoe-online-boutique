@@ -45,7 +45,7 @@ const Cart = () => {
     <div className="page-container">
       <Header />
       <main className="padding-top-xl">
-        <div className="container-medium margin-auto padding-horizontal-base padding-vertical-xl">
+        <div className="container-large margin-auto padding-horizontal-base padding-vertical-xl" style={{ maxWidth: '1200px' }}>
           <h1 className="heading-sm sm\:heading-md font-light text-primary margin-bottom-xl">
             Shopping Cart
           </h1>
@@ -62,17 +62,17 @@ const Cart = () => {
               <div className="lg\:col-span-2">
                 <div className="space-vertical-lg">
                   {cartItems.map((item) => (
-                    <div key={item.id} className="flex-start space-horizontal-base bg-white padding-lg rounded-lg shadow-sm">
+                    <div key={item.id} className="flex-start space-horizontal-base bg-white padding-lg rounded-lg shadow-sm cart-item-container">
                       <img
                         src={item.image}
                         alt={item.name}
-                        className="size-20 object-cover rounded-md"
+                        className="cart-item-image object-cover rounded-md flex-shrink-0"
                       />
-                      <div className="flex-grow">
+                      <div className="flex-grow min-width-0">
                         <h3 className="subheading-lg font-medium text-primary">{item.name}</h3>
                         <p className="text-secondary">${item.price.toLocaleString()}</p>
                       </div>
-                      <div className="flex-start space-horizontal-sm">
+                      <div className="flex-start space-horizontal-sm flex-shrink-0">
                         <Button
                           variant="outline"
                           size="sm"
@@ -95,7 +95,7 @@ const Cart = () => {
                         variant="ghost"
                         size="sm"
                         onClick={() => removeItem(item.id)}
-                        className="btn btn-ghost text-error hover\:text-error-dark padding-sm"
+                        className="btn btn-ghost text-error hover\:text-error-dark padding-sm flex-shrink-0"
                       >
                         <Trash2 className="size-4" />
                       </Button>

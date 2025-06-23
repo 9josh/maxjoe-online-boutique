@@ -98,9 +98,11 @@ const Header = () => {
             >
               <Search className="size-4 sm-size-5" />
             </Button>
-            <Button variant="ghost" size="sm" className="btn btn-ghost padding-sm">
-              <User className="size-4 sm-size-5" />
-            </Button>
+            <Link to="/profile">
+              <Button variant="ghost" size="sm" className="btn btn-ghost padding-sm">
+                <User className="size-4 sm-size-5" />
+              </Button>
+            </Link>
             <Link to="/cart">
               <Button variant="ghost" size="sm" className="btn btn-ghost position-relative padding-sm">
                 <ShoppingCart className="size-4 sm-size-5" />
