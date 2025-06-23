@@ -1,0 +1,55 @@
+
+/* Alert component styles */
+.alert-base {
+  position: relative;
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid var(--silver-light);
+  padding: 1rem;
+}
+
+.alert-base [data-alert-icon] {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  color: var(--grey-charcoal);
+}
+
+.alert-base [data-alert-content] {
+  padding-left: 1.75rem;
+}
+
+.alert-base [data-alert-content] + div {
+  transform: translateY(-3px);
+}
+
+/* Variants */
+.alert-default {
+  background-color: var(--white-pure);
+  color: var(--grey-charcoal);
+}
+
+.alert-destructive {
+  border-color: rgba(239, 68, 68, 0.5);
+  color: var(--error-text);
+}
+
+.alert-destructive [data-alert-icon] {
+  color: var(--error-text);
+}
+
+.alert-title {
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+
+.alert-description {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.alert-description p {
+  line-height: 1.5;
+}

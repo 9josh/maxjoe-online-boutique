@@ -1,0 +1,41 @@
+
+/* Card component styles */
+.card-base {
+  border-radius: 0.5rem;
+  border: 1px solid var(--silver-light);
+  background-color: var(--white-pure);
+  color: var(--grey-charcoal);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  padding: 1.5rem;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  color: var(--grey-charcoal);
+}
+
+.card-description {
+  font-size: 0.875rem;
+  color: var(--grey-medium);
+}
+
+.card-content {
+  padding: 1.5rem;
+  padding-top: 0;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  padding-top: 0;
+}

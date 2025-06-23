@@ -1,0 +1,54 @@
+
+/* Badge component styles */
+.badge-base {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  padding: 0.125rem 0.625rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.badge-base:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--accent-focus);
+}
+
+/* Variants */
+.badge-default {
+  border-color: transparent;
+  background-color: var(--silver-primary);
+  color: var(--white-pure);
+}
+
+.badge-default:hover {
+  background-color: var(--accent-hover);
+}
+
+.badge-secondary {
+  border-color: transparent;
+  background-color: var(--grey-whisper);
+  color: var(--grey-charcoal);
+}
+
+.badge-secondary:hover {
+  background-color: var(--grey-lighter);
+}
+
+.badge-destructive {
+  border-color: transparent;
+  background-color: var(--error-text);
+  color: var(--white-pure);
+}
+
+.badge-destructive:hover {
+  background-color: #991b1b;
+}
+
+.badge-outline {
+  color: var(--grey-charcoal);
+  border: 1px solid var(--silver-light);
+}

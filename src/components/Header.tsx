@@ -9,6 +9,7 @@ const Header = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
   const location = useLocation();
 
   const navigation = [
@@ -21,7 +22,18 @@ const Header = () => {
   // Close mobile menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
+      const target = event.target as Node;
+      
+      // Don't close if clicking on the menu button or mobile menu container
+      if (
+        menuButtonRef.current?.contains(target) ||
+        mobileMenuRef.current?.contains(target)
+      ) {
+        return;
+      }
+      
+      // Close menu if clicking outside
+      if (isMobileMenuOpen) {
         setIsMobileMenuOpen(false);
       }
     };
@@ -100,6 +112,7 @@ const Header = () => {
 
             {/* Mobile Menu Button - Only visible on mobile */}
             <Button 
+              ref={menuButtonRef}
               variant="ghost" 
               size="sm" 
               onClick={toggleMobileMenu}
