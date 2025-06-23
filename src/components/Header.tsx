@@ -1,13 +1,15 @@
 
-import { useState } from "react";
-import { Search, User, ShoppingCart, Menu } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Search, User, ShoppingCart, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
 
   const navigation = [
     { name: "Watches", href: "/watches" },
@@ -15,6 +17,38 @@ const Header = () => {
     { name: "Bracelets", href: "/bracelets" },
     { name: "Collections", href: "/collections" },
   ];
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    if (isMobileMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMobileMenuOpen]);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const handleNavLinkClick = (href: string) => {
+    // If clicking on the current page, just close the menu
+    if (location.pathname === href) {
+      setIsMobileMenuOpen(false);
+      return;
+    }
+    // For navigation to other pages, React Router will handle it
+    // and the menu will close naturally
+    setIsMobileMenuOpen(false);
+  };
 
   return (
     <header className="header">
@@ -64,27 +98,15 @@ const Header = () => {
               </Button>
             </Link>
 
-            {/* Mobile Menu */}
-            <Sheet>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="sm" className="btn btn-ghost md-display-hidden padding-sm">
-                  <Menu className="size-5" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="top" className="mobile-nav-sheet">
-                <nav className="mobile-nav-content">
-                  {navigation.map((item) => (
-                    <Link
-                      key={item.name}
-                      to={item.href}
-                      className="mobile-nav-link"
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </nav>
-              </SheetContent>
-            </Sheet>
+            {/* Mobile Menu Button - Only visible on mobile */}
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              onClick={toggleMobileMenu}
+              className="btn btn-ghost md-display-hidden padding-sm"
+            >
+              {isMobileMenuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+            </Button>
           </div>
         </div>
 
@@ -100,6 +122,27 @@ const Header = () => {
               />
               <Search className="position-absolute size-4 text-muted" style={{left: '0.75rem', top: '50%', transform: 'translateY(-50%)'}} />
             </div>
+          </div>
+        )}
+
+        {/* Mobile Navigation Menu */}
+        {isMobileMenuOpen && (
+          <div 
+            ref={mobileMenuRef}
+            className="mobile-nav-container md-display-hidden"
+          >
+            <nav className="mobile-nav-content">
+              {navigation.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  onClick={() => handleNavLinkClick(item.href)}
+                  className="mobile-nav-link"
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </nav>
           </div>
         )}
       </div>
