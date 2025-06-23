@@ -71,13 +71,13 @@ const Header = () => {
                   <Menu className="size-5" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="size-80">
-                <nav className="flex-column space-vertical-base margin-top-xl">
+              <SheetContent side="top" className="mobile-nav-sheet">
+                <nav className="mobile-nav-content">
                   {navigation.map((item) => (
                     <Link
                       key={item.name}
                       to={item.href}
-                      className="text-primary-light hover-text-primary font-medium padding-vertical-sm border-bottom border-light subheading-lg"
+                      className="mobile-nav-link"
                     >
                       {item.name}
                     </Link>

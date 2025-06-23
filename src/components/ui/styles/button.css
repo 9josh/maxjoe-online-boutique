@@ -1,0 +1,117 @@
+
+/* Button component styles */
+.btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  ring-offset-color: var(--white-pure);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-base:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--accent-focus);
+}
+
+.btn-base:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.btn-base svg {
+  pointer-events: none;
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+/* Variants */
+.btn-default {
+  background-color: var(--silver-primary);
+  color: var(--white-pure);
+}
+
+.btn-default:hover {
+  background-color: var(--accent-hover);
+}
+
+.btn-destructive {
+  background-color: var(--error-text);
+  color: var(--white-pure);
+}
+
+.btn-destructive:hover {
+  background-color: #991b1b;
+}
+
+.btn-outline {
+  border: 1px solid var(--silver-light);
+  background-color: var(--white-pure);
+  color: var(--grey-charcoal);
+}
+
+.btn-outline:hover {
+  background-color: var(--grey-whisper);
+  color: var(--grey-charcoal);
+}
+
+.btn-secondary {
+  background-color: var(--grey-whisper);
+  color: var(--grey-charcoal);
+}
+
+.btn-secondary:hover {
+  background-color: var(--grey-lighter);
+}
+
+.btn-ghost {
+  background-color: transparent;
+  color: var(--grey-charcoal);
+}
+
+.btn-ghost:hover {
+  background-color: var(--grey-whisper);
+  color: var(--grey-charcoal);
+}
+
+.btn-link {
+  color: var(--silver-primary);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.btn-link:hover {
+  text-decoration: none;
+}
+
+/* Sizes */
+.btn-default-size {
+  height: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+
+.btn-sm {
+  height: 2.25rem;
+  border-radius: 0.375rem;
+  padding: 0 0.75rem;
+}
+
+.btn-lg {
+  height: 2.75rem;
+  border-radius: 0.375rem;
+  padding: 0 2rem;
+}
+
+.btn-icon {
+  height: 2.5rem;
+  width: 2.5rem;
+}
