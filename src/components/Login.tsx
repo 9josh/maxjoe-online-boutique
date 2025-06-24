@@ -36,7 +36,7 @@ const Login = ({ onLogin, onSwitchToSignup }: LoginProps) => {
   return (
     <div className="container-medium margin-auto padding-horizontal-base padding-vertical-xl">
       <div className="layout-center-content" style={{ minHeight: "70vh" }}>
-        <Card className="card-base container-xs layout-full-width">
+        <Card className="container-xs layout-full-width">
           <div className="card-content">
             <div className="text-center margin-bottom-lg">
               <h1 className="heading-sm text-primary margin-bottom-sm">Welcome Back</h1>
@@ -74,7 +74,7 @@ const Login = ({ onLogin, onSwitchToSignup }: LoginProps) => {
                 />
               </div>
 
-              <Button type="submit" className="btn btn-primary layout-full-width margin-top-lg">
+              <Button type="submit" className="layout-full-width margin-top-lg">
                 Sign In
               </Button>
             </form>

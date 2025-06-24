@@ -1,7 +1,8 @@
-/* Component-specific styles with luxury color palette */
 
-/* Button styles */
-.btn {
+/* Page-level and custom component styles with luxury color palette */
+
+/* Page Button styles (different from UI button components) */
+.page-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -15,80 +16,80 @@
   letter-spacing: 0.5px;
 }
 
-.btn:focus-visible {
+.page-btn:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 2px;
   box-shadow: 0 0 0 3px var(--accent-focus);
 }
 
-.btn:disabled {
+.page-btn:disabled {
   pointer-events: none;
   opacity: 0.5;
 }
 
-.btn-primary {
+.page-btn-primary {
   background-color: var(--silver-primary);
   color: var(--white-pure);
   box-shadow: 0 4px 15px rgba(192, 192, 192, 0.3);
 }
 
-.btn-primary:hover {
+.page-btn-primary:hover {
   background-color: var(--accent-hover);
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(192, 192, 192, 0.4);
 }
 
-.btn-secondary {
+.page-btn-secondary {
   background: var(--glass-white);
   color: var(--silver-primary);
   border: 2px solid var(--silver-light);
   backdrop-filter: blur(10px);
 }
 
-.btn-secondary:hover {
+.page-btn-secondary:hover {
   background-color: var(--grey-whisper);
   border-color: var(--silver-primary);
   transform: translateY(-2px);
 }
 
-.btn-outline {
+.page-btn-outline {
   border: 2px solid var(--silver-primary);
   background: var(--glass-white);
   color: var(--silver-primary);
   backdrop-filter: blur(10px);
 }
 
-.btn-outline:hover {
+.page-btn-outline:hover {
   background-color: var(--silver-primary);
   color: var(--white-pure);
   transform: translateY(-2px);
 }
 
-.btn-ghost {
+.page-btn-ghost {
   background: var(--glass-silver);
   color: var(--grey-slate);
   backdrop-filter: blur(10px);
 }
 
-.btn-ghost:hover {
+.page-btn-ghost:hover {
   background: var(--glass-overlay);
   transform: translateY(-1px);
 }
 
-.btn-sm {
+.page-btn-sm {
   height: 36px;
   padding: 0 20px;
   font-size: 0.875rem;
 }
 
-.btn-lg {
+.page-btn-lg {
   height: 56px;
   padding: 0 32px;
   font-size: 1.125rem;
 }
 
-/* Card styles */
-.card {
+/* Page Card styles (different from UI card components) */
+.page-card {
   border-radius: 16px;
   border: 1px solid var(--glass-silver);
   background: var(--glass-white);
@@ -97,18 +98,18 @@
   transition: all 0.3s ease;
 }
 
-.card:hover {
+.page-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
   border-color: var(--silver-light);
 }
 
-.card-content {
+.page-card-content {
   padding: 24px;
 }
 
-/* Input styles */
-.input {
+/* Page Input styles (different from UI input components) */
+.page-input {
   height: 48px;
   width: 100%;
   border-radius: 12px;
@@ -121,13 +122,13 @@
   transition: all 0.3s ease;
 }
 
-.input:focus {
+.page-input:focus {
   outline: none;
   border-color: var(--silver-primary);
   box-shadow: 0 0 0 3px var(--accent-focus);
 }
 
-.input::placeholder {
+.page-input::placeholder {
   color: var(--grey-light);
 }
 
