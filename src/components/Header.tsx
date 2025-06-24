@@ -10,6 +10,8 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const searchButtonRef = useRef<HTMLButtonElement>(null);
+  const searchContainerRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
 
   const navigation = [
@@ -47,8 +49,40 @@ const Header = () => {
     };
   }, [isMobileMenuOpen]);
 
+  // Close search when clicking outside
+  useEffect(() => {
+    const handleSearchClickOutside = (event: MouseEvent) => {
+      const target = event.target as Node;
+      
+      // Don't close if clicking on the search button or search container
+      if (
+        searchButtonRef.current?.contains(target) ||
+        searchContainerRef.current?.contains(target)
+      ) {
+        return;
+      }
+      
+      // Close search if clicking outside
+      if (isSearchOpen) {
+        setIsSearchOpen(false);
+      }
+    };
+
+    if (isSearchOpen) {
+      document.addEventListener('mousedown', handleSearchClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleSearchClickOutside);
+    };
+  }, [isSearchOpen]);
+
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const toggleSearch = () => {
+    setIsSearchOpen(!isSearchOpen);
   };
 
   const handleNavLinkClick = (href: string) => {
@@ -91,9 +125,10 @@ const Header = () => {
           {/* Actions */}
           <div className="flex-start space-horizontal-sm sm-space-horizontal-base">
             <Button
+              ref={searchButtonRef}
               variant="ghost"
               size="sm"
-              onClick={() => setIsSearchOpen(!isSearchOpen)}
+              onClick={toggleSearch}
               className="btn btn-ghost padding-sm"
             >
               <Search className="size-4 sm-size-5" />
@@ -127,15 +162,16 @@ const Header = () => {
 
         {/* Search Bar */}
         {isSearchOpen && (
-          <div className="padding-vertical-base border-top border-light">
-            <div className="position-relative container-xs margin-auto">
-              <Input
-                type="text"
-                placeholder="Search luxury jewelry..."
-                className="input padding-left-xl bg-light border-base hover-border-dark"
-                style={{paddingLeft: '2.5rem'}}
-              />
-              <Search className="position-absolute size-4 text-muted" style={{left: '0.75rem', top: '50%', transform: 'translateY(-50%)'}} />
+          <div ref={searchContainerRef} className="search-container">
+            <div className="search-inner">
+              <div className="search-input-wrapper">
+                <Input
+                  type="text"
+                  placeholder="Search luxury jewelry..."
+                  className="search-input"
+                />
+                <Search className="search-icon" />
+              </div>
             </div>
           </div>
         )}

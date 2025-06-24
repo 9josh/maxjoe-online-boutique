@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Trash2, Plus, Minus } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([
@@ -46,59 +47,81 @@ const Cart = () => {
       <Header />
       <main className="padding-top-xl">
         <div className="container-large margin-auto padding-horizontal-base padding-vertical-xl" style={{ maxWidth: '1200px' }}>
-          <h1 className="heading-sm sm\:heading-md font-light text-primary margin-bottom-xl">
-            Shopping Cart
-          </h1>
+          <div className="flex-between margin-bottom-xl">
+            <h1 className="heading-sm sm:heading-md font-light text-primary">
+              Shopping Cart
+            </h1>
+            <Link to="/">
+              <Button variant="outline" className="btn btn-outline">
+                Continue Shopping
+              </Button>
+            </Link>
+          </div>
           
           {cartItems.length === 0 ? (
             <div className="text-center padding-vertical-2xl">
               <p className="subheading-lg text-secondary margin-bottom-lg">Your cart is empty</p>
-              <Button className="btn btn-primary">
-                Continue Shopping
-              </Button>
+              <Link to="/">
+                <Button className="btn btn-primary">
+                  Continue Shopping
+                </Button>
+              </Link>
             </div>
           ) : (
-            <div className="grid-layout grid-1 lg\:grid-3 gap-xl">
-              <div className="lg\:col-span-2">
+            <div className="grid-layout grid-1 lg:grid-3 gap-xl">
+              <div className="lg:col-span-2">
                 <div className="space-vertical-lg">
                   {cartItems.map((item) => (
-                    <div key={item.id} className="flex-start space-horizontal-base bg-white padding-lg rounded-lg shadow-sm cart-item-container">
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        className="cart-item-image object-cover rounded-md flex-shrink-0"
-                      />
-                      <div className="flex-grow min-width-0">
-                        <h3 className="subheading-lg font-medium text-primary">{item.name}</h3>
-                        <p className="text-secondary">${item.price.toLocaleString()}</p>
+                    <div key={item.id} className="cart-item-enhanced bg-white padding-lg rounded-lg shadow-sm">
+                      <div className="cart-item-layout">
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          className="cart-item-image object-cover rounded-md flex-shrink-0"
+                        />
+                        <div className="cart-item-details">
+                          <h3 className="subheading-lg font-medium text-primary">{item.name}</h3>
+                          <div className="cart-item-price-section">
+                            <span className="cart-unit-price-label">Unit Price</span>
+                            <p className="text-secondary">${item.price.toLocaleString()}</p>
+                          </div>
+                        </div>
+                        <div className="cart-item-controls">
+                          <div className="cart-quantity-controls">
+                            <div className="flex-start space-horizontal-sm">
+                              <Button
+                                variant="outline"
+                                size="sm"
+                                onClick={() => updateQuantity(item.id, -1)}
+                                className="btn btn-outline size-8 padding-none"
+                              >
+                                <Minus className="size-4" />
+                              </Button>
+                              <span className="size-8 text-center">{item.quantity}</span>
+                              <Button
+                                variant="outline"
+                                size="sm"
+                                onClick={() => updateQuantity(item.id, 1)}
+                                className="btn btn-outline size-8 padding-none"
+                              >
+                                <Plus className="size-4" />
+                              </Button>
+                            </div>
+                            <div className="cart-item-total">
+                              <span className="cart-total-label">Item Quantity Total</span>
+                              <span className="cart-total-price">${(item.price * item.quantity).toLocaleString()}</span>
+                            </div>
+                          </div>
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => removeItem(item.id)}
+                            className="btn btn-ghost text-error hover:text-error-dark padding-sm cart-remove-btn"
+                          >
+                            <Trash2 className="size-4" />
+                          </Button>
+                        </div>
                       </div>
-                      <div className="flex-start space-horizontal-sm flex-shrink-0">
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => updateQuantity(item.id, -1)}
-                          className="btn btn-outline size-8 padding-none"
-                        >
-                          <Minus className="size-4" />
-                        </Button>
-                        <span className="size-8 text-center">{item.quantity}</span>
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => updateQuantity(item.id, 1)}
-                          className="btn btn-outline size-8 padding-none"
-                        >
-                          <Plus className="size-4" />
-                        </Button>
-                      </div>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={() => removeItem(item.id)}
-                        className="btn btn-ghost text-error hover\:text-error-dark padding-sm flex-shrink-0"
-                      >
-                        <Trash2 className="size-4" />
-                      </Button>
                     </div>
                   ))}
                 </div>
@@ -123,9 +146,11 @@ const Cart = () => {
                       </div>
                     </div>
                   </div>
-                  <Button className="btn btn-primary layout-full-width margin-top-lg">
-                    Proceed to Checkout
-                  </Button>
+                  <div className="cart-checkout-container">
+                    <Button className="btn btn-primary cart-checkout-btn">
+                      Proceed to Checkout
+                    </Button>
+                  </div>
                 </div>
               </div>
             </div>
