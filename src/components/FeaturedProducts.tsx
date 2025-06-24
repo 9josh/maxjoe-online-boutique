@@ -1,5 +1,5 @@
-
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const FeaturedProducts = () => {
   const products = [
@@ -79,9 +79,11 @@ const FeaturedProducts = () => {
         </div>
 
         <div className="text-center section-footer">
-          <Button size="lg" variant="outline" className="btn btn-outline">
-            View All Products
-          </Button>
+          <Link to="/all-products">
+            <Button size="lg" variant="outline" className="btn btn-outline">
+              View All Products
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

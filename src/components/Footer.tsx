@@ -1,4 +1,3 @@
-
 const Footer = () => {
   const footerLinks = {
     shop: [
@@ -48,10 +47,10 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Mobile/Tablet Links Layout */}
+          {/* Mobile/Tablet Links Layout - Updated Structure */}
           <div className="footer-links-container">
-            {/* Shop and Support Links Row */}
-            <div className="footer-links-row">
+            {/* First Row: Shop and Support Links */}
+            <div className="footer-first-row">
               <div className="footer-section">
                 <h4 className="footer-title">Shop</h4>
                 <ul className="footer-links">
@@ -79,8 +78,8 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Company Links Row */}
-            <div className="footer-company-row">
+            {/* Second Row: Company Links */}
+            <div className="footer-second-row">
               <div className="footer-section">
                 <h4 className="footer-title">Company</h4>
                 <ul className="footer-links">
