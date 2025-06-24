@@ -24,7 +24,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="section-container section-padding">
-        <div className="footer-grid">
+        <div className="footer-grid-mobile">
           {/* Brand */}
           <div className="footer-brand">
             <h3 className="logo">MaxJoe</h3>
@@ -48,46 +48,52 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Shop Links */}
-          <div className="footer-section">
-            <h4 className="footer-title">Shop</h4>
-            <ul className="footer-links">
-              {footerLinks.shop.map((link) => (
-                <li key={link.name}>
-                  <a href={link.href} className="footer-link">
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Mobile/Tablet Links Layout */}
+          <div className="footer-links-container">
+            {/* Shop and Support Links Row */}
+            <div className="footer-links-row">
+              <div className="footer-section">
+                <h4 className="footer-title">Shop</h4>
+                <ul className="footer-links">
+                  {footerLinks.shop.map((link) => (
+                    <li key={link.name}>
+                      <a href={link.href} className="footer-link">
+                        {link.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-          {/* Support Links */}
-          <div className="footer-section">
-            <h4 className="footer-title">Support</h4>
-            <ul className="footer-links">
-              {footerLinks.support.map((link) => (
-                <li key={link.name}>
-                  <a href={link.href} className="footer-link">
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+              <div className="footer-section">
+                <h4 className="footer-title">Support</h4>
+                <ul className="footer-links">
+                  {footerLinks.support.map((link) => (
+                    <li key={link.name}>
+                      <a href={link.href} className="footer-link">
+                        {link.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
 
-          {/* Company Links */}
-          <div className="footer-section">
-            <h4 className="footer-title">Company</h4>
-            <ul className="footer-links">
-              {footerLinks.company.map((link) => (
-                <li key={link.name}>
-                  <a href={link.href} className="footer-link">
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            {/* Company Links Row */}
+            <div className="footer-company-row">
+              <div className="footer-section">
+                <h4 className="footer-title">Company</h4>
+                <ul className="footer-links">
+                  {footerLinks.company.map((link) => (
+                    <li key={link.name}>
+                      <a href={link.href} className="footer-link">
+                        {link.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
 
