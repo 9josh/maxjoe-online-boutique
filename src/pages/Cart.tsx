@@ -5,38 +5,10 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Trash2, Plus, Minus } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useCart } from "@/contexts/CartContext";
 
 const Cart = () => {
-  const [cartItems, setCartItems] = useState([
-    {
-      id: 1,
-      name: "Classic Gold Timepiece",
-      price: 2499,
-      quantity: 1,
-      image: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=200&h=200&fit=crop"
-    },
-    {
-      id: 2,
-      name: "Diamond Statement Necklace",
-      price: 5999,
-      quantity: 1,
-      image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=200&h=200&fit=crop"
-    }
-  ]);
-
-  const updateQuantity = (id: number, change: number) => {
-    setCartItems(items => 
-      items.map(item => 
-        item.id === id 
-          ? { ...item, quantity: Math.max(1, item.quantity + change) }
-          : item
-      )
-    );
-  };
-
-  const removeItem = (id: number) => {
-    setCartItems(items => items.filter(item => item.id !== id));
-  };
+  const { cartItems, updateQuantity, removeFromCart } = useCart();
 
   const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   const shipping = 0; // Free shipping for luxury items
@@ -92,7 +64,7 @@ const Cart = () => {
                               <Button
                                 variant="outline"
                                 size="sm"
-                                onClick={() => updateQuantity(item.id, -1)}
+                                onClick={() => updateQuantity(item.id, item.quantity - 1)}
                                 className="btn btn-outline size-8 padding-none"
                               >
                                 <Minus className="size-4" />
@@ -101,7 +73,7 @@ const Cart = () => {
                               <Button
                                 variant="outline"
                                 size="sm"
-                                onClick={() => updateQuantity(item.id, 1)}
+                                onClick={() => updateQuantity(item.id, item.quantity + 1)}
                                 className="btn btn-outline size-8 padding-none"
                               >
                                 <Plus className="size-4" />
@@ -115,7 +87,7 @@ const Cart = () => {
                           <Button
                             variant="ghost"
                             size="sm"
-                            onClick={() => removeItem(item.id)}
+                            onClick={() => removeFromCart(item.id)}
                             className="btn btn-ghost text-error hover:text-error-dark padding-sm cart-remove-btn"
                           >
                             <Trash2 className="size-4" />

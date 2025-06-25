@@ -37,7 +37,7 @@ const Collections = () => {
       <main className="padding-top-xl">
         <div className="section-container padding-vertical-xl">
           <div className="text-center margin-bottom-2xl">
-            <h1 className="heading-md sm\:heading-lg font-light text-primary margin-bottom-base">
+            <h1 className="heading-md sm\:heading-lg font-light text-primary margin-bottom-base gradient-text">
               Our Collections
             </h1>
             <p className="body-lg text-secondary container-small margin-auto">
@@ -45,29 +45,22 @@ const Collections = () => {
             </p>
           </div>
           
-          <div className="grid-layout grid-1 md\:grid-2 gap-xl">
+          <div className="collection-grid">
             {collections.map((collection, index) => (
-              <div key={collection.name} className="group cursor-pointer">
-                <div className="position-relative overflow-hidden rounded-lg bg-white shadow-lg hover\:shadow-xl transition-base translate-up-hover">
+              <div key={collection.name} className="collection-card" style={{ animationDelay: `${index * 0.1}s` }}>
+                <div className="collection-image">
                   <AspectRatio ratio={4/3}>
                     <img
                       src={collection.image}
                       alt={collection.name}
                       className="layout-full-width layout-full-height object-cover scale-hover transition-slower"
                     />
-                    <div className="position-absolute position-full bg-gradient-strong-overlay"></div>
                   </AspectRatio>
                   
-                  <div className="position-absolute position-bottom position-left position-right padding-lg text-white">
-                    <h3 className="heading-xs font-semibold margin-bottom-sm">{collection.name}</h3>
-                    <p className="text-lightest margin-bottom-sm">{collection.description}</p>
-                    <p className="body-sm text-lighter">{collection.itemCount} pieces</p>
-                  </div>
-                  
-                  <div className="position-absolute position-full bg-semi-transparent backdrop-blur-sm opacity-0 group:hover .opacity-100 transition-smooth flex-center">
-                    <span className="text-white font-medium bg-glass-dark padding-horizontal-lg padding-vertical-sm rounded-full backdrop-blur-sm">
-                      View Collection
-                    </span>
+                  <div className="collection-overlay">
+                    <h3 className="collection-name">{collection.name}</h3>
+                    <p className="collection-description">{collection.description}</p>
+                    <p className="body-sm text-lighter margin-top-sm">{collection.itemCount} pieces</p>
                   </div>
                 </div>
               </div>

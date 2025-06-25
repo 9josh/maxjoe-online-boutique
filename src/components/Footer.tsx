@@ -48,7 +48,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Mobile/Tablet Links Layout - Corrected Structure */}
+          {/* Mobile/Tablet Links Layout */}
           <div className="footer-links-container">
             {/* First Row: Shop and Support Links side by side */}
             <div className="footer-first-row">

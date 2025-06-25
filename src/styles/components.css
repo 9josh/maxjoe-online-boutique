@@ -401,7 +401,7 @@
   color: var(--silver-light);
 }
 
-/* Footer responsive layout */
+/* Footer responsive layout - Updated for mobile centering */
 .footer-grid-mobile {
   display: grid;
   grid-template-columns: 1fr;
@@ -416,7 +416,7 @@
   gap: 32px;
 }
 
-/* First row: Shop and Support side by side */
+/* First row: Shop and Support side by side - UPDATED */
 .footer-first-row {
   display: flex;
   flex-direction: column;
@@ -425,19 +425,28 @@
   align-items: center;
 }
 
-/* Second row: Company centered */
+/* Second row: Company centered - UPDATED */
 .footer-second-row {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Tablet styles for footer */
+/* Social links centering for mobile - UPDATED */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  align-items: center;
+}
+
+/* Tablet styles for footer - UPDATED */
 @media (min-width: 640px) and (max-width: 1023px) {
   .footer-first-row {
     flex-direction: row;
     gap: 48px;
     justify-content: center;
+    align-items: flex-start;
   }
   
   .footer-second-row {
@@ -773,6 +782,7 @@
   animation: fadeInUp 0.6s ease-out forwards;
   opacity: 0;
   transform: translateY(30px);
+  cursor: pointer;
 }
 
 .collection-card:hover {
@@ -783,7 +793,6 @@
 
 .collection-image {
   position: relative;
-  aspect-ratio: 1;
   overflow: hidden;
 }
 

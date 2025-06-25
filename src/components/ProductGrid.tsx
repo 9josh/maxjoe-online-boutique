@@ -1,6 +1,9 @@
 
 import { Button } from "@/components/ui/button";
-import { Heart, ShoppingCart } from "lucide-react";
+import { Heart, ShoppingCart, Eye } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useCart } from "@/contexts/CartContext";
+import { useToast } from "@/hooks/use-toast";
 
 interface Product {
   id: number;
@@ -15,6 +18,26 @@ interface ProductGridProps {
 }
 
 const ProductGrid = ({ products }: ProductGridProps) => {
+  const { addToCart } = useCart();
+  const { toast } = useToast();
+
+  const handleAddToCart = (product: Product) => {
+    const success = addToCart(product);
+    
+    if (success) {
+      toast({
+        title: "Added to cart",
+        description: `${product.name} has been added to your cart.`,
+      });
+    } else {
+      toast({
+        title: "Item already in cart",
+        description: "This item is already added to your cart.",
+        variant: "destructive",
+      });
+    }
+  };
+
   return (
     <div className="product-grid">
       {products.map((product) => (
@@ -26,10 +49,21 @@ const ProductGrid = ({ products }: ProductGridProps) => {
               className="product-img"
             />
             <div className="product-overlay">
-              <Button className="btn btn-primary">
-                <ShoppingCart className="size-4 margin-right-sm" />
-                Add to Cart
-              </Button>
+              <div className="flex-start space-horizontal-sm">
+                <Button 
+                  className="btn btn-primary"
+                  onClick={() => handleAddToCart(product)}
+                >
+                  <ShoppingCart className="size-4 margin-right-sm" />
+                  Add to Cart
+                </Button>
+                <Link to={`/product/${product.category}/${product.id}`}>
+                  <Button variant="outline" className="btn btn-outline">
+                    <Eye className="size-4 margin-right-sm" />
+                    Details
+                  </Button>
+                </Link>
+              </div>
             </div>
             <div className="position-absolute" style={{top: '16px', right: '16px'}}>
               <Button

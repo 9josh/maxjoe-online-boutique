@@ -4,6 +4,7 @@ import { Search, User, ShoppingCart, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link, useLocation } from "react-router-dom";
+import { useCart } from "@/contexts/CartContext";
 
 const Header = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -13,6 +14,9 @@ const Header = () => {
   const searchButtonRef = useRef<HTMLButtonElement>(null);
   const searchContainerRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
+  const { getCartCount } = useCart();
+
+  const cartCount = getCartCount();
 
   const navigation = [
     { name: "Watches", href: "/watches" },
@@ -141,9 +145,11 @@ const Header = () => {
             <Link to="/cart">
               <Button variant="ghost" size="sm" className="btn btn-ghost position-relative padding-sm">
                 <ShoppingCart className="size-4 sm-size-5" />
-                <span className="position-absolute bg-primary text-white body-xs rounded-full size-4 sm-size-5 flex-center" style={{top: '-0.25rem', right: '-0.25rem'}}>
-                  2
-                </span>
+                {cartCount > 0 && (
+                  <span className="position-absolute bg-red-500 text-white body-xs rounded-full size-4 sm-size-5 flex-center" style={{top: '-0.25rem', right: '-0.25rem'}}>
+                    {cartCount}
+                  </span>
+                )}
               </Button>
             </Link>
 
