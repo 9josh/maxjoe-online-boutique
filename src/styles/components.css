@@ -1,3 +1,4 @@
+
 /* Page-level and custom component styles with luxury color palette */
 
 /* Page Button styles (different from UI button components) */
@@ -254,7 +255,7 @@
   color: var(--silver-light);
 }
 
-/* Footer responsive layout - Corrected */
+/* Footer responsive layout */
 .footer-grid-mobile {
   display: grid;
   grid-template-columns: 1fr;
@@ -342,7 +343,7 @@
   }
 }
 
-/* Newsletter specific styles - Restored background and improved */
+/* Newsletter specific styles */
 .newsletter-section {
   padding: 4rem 0;
   background-color: var(--grey-whisper);
