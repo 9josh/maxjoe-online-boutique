@@ -4,7 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Heart, ShoppingCart } from "lucide-react";
+import { ArrowLeft, Heart, ShoppingCart, ChevronLeft, ChevronRight } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { useToast } from "@/hooks/use-toast";
 
@@ -64,6 +64,14 @@ const ProductDetails = () => {
     navigate(-1);
   };
 
+  const nextImage = () => {
+    setSelectedImage((prev) => (prev + 1) % product.images.length);
+  };
+
+  const prevImage = () => {
+    setSelectedImage((prev) => (prev - 1 + product.images.length) % product.images.length);
+  };
+
   return (
     <div className="page-container">
       <Header />
@@ -78,49 +86,76 @@ const ProductDetails = () => {
             Back
           </Button>
 
-          <div className="grid-layout grid-1 lg:grid-2 gap-xl">
-            {/* Product Images */}
-            <div>
-              <div className="margin-bottom-base">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+            {/* Product Images Column */}
+            <div className="space-y-4">
+              {/* Main Image with Slider Controls */}
+              <div className="relative">
                 <img
                   src={product.images[selectedImage]}
                   alt={product.name}
-                  className="layout-full-width aspect-square object-cover rounded-lg"
+                  className="w-full aspect-square object-cover rounded-lg"
                 />
+                {product.images.length > 1 && (
+                  <>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={prevImage}
+                      className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white shadow-md rounded-full p-2"
+                    >
+                      <ChevronLeft className="size-4" />
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={nextImage}
+                      className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white shadow-md rounded-full p-2"
+                    >
+                      <ChevronRight className="size-4" />
+                    </Button>
+                  </>
+                )}
               </div>
-              <div className="flex-start space-horizontal-sm">
-                {product.images.map((image, index) => (
-                  <img
-                    key={index}
-                    src={image}
-                    alt={`${product.name} ${index + 1}`}
-                    className={`size-20 object-cover rounded-md cursor-pointer border-2 ${
-                      selectedImage === index ? 'border-silver-primary' : 'border-transparent'
-                    }`}
-                    onClick={() => setSelectedImage(index)}
-                  />
-                ))}
-              </div>
+              
+              {/* Thumbnail Images */}
+              {product.images.length > 1 && (
+                <div className="flex gap-3 justify-center">
+                  {product.images.map((image, index) => (
+                    <img
+                      key={index}
+                      src={image}
+                      alt={`${product.name} ${index + 1}`}
+                      className={`w-20 h-20 object-cover rounded-md cursor-pointer border-2 transition-all ${
+                        selectedImage === index ? 'border-silver-primary shadow-md' : 'border-gray-200 hover:border-gray-300'
+                      }`}
+                      onClick={() => setSelectedImage(index)}
+                    />
+                  ))}
+                </div>
+              )}
             </div>
 
-            {/* Product Info */}
-            <div>
-              <div className="product-category margin-bottom-sm">{product.category}</div>
-              <h1 className="heading-sm font-medium text-primary margin-bottom-base">{product.name}</h1>
-              <p className="heading-xs text-primary margin-bottom-lg">${product.price.toLocaleString()}</p>
+            {/* Product Info Column */}
+            <div className="space-y-6">
+              <div>
+                <div className="text-sm text-gray-500 uppercase tracking-wide mb-2">{product.category}</div>
+                <h1 className="text-3xl lg:text-4xl font-light text-gray-900 mb-4">{product.name}</h1>
+                <p className="text-2xl lg:text-3xl text-gray-900 font-medium">${product.price.toLocaleString()}</p>
+              </div>
               
-              <p className="body-base text-secondary margin-bottom-lg">{product.description}</p>
+              <p className="text-gray-600 leading-relaxed">{product.description}</p>
               
               {/* Color Selection */}
-              <div className="margin-bottom-lg">
-                <h3 className="subheading-lg font-medium margin-bottom-sm">Available Colors</h3>
-                <div className="flex-start space-horizontal-sm">
+              <div>
+                <h3 className="text-lg font-medium mb-3">Available Colors</h3>
+                <div className="flex gap-3">
                   {product.colors.map((color) => (
                     <Button
                       key={color}
                       variant={selectedColor === color ? "default" : "outline"}
                       onClick={() => setSelectedColor(color)}
-                      className="btn btn-outline"
+                      className="px-4 py-2"
                     >
                       {color}
                     </Button>
@@ -129,26 +164,29 @@ const ProductDetails = () => {
               </div>
 
               {/* Features */}
-              <div className="margin-bottom-xl">
-                <h3 className="subheading-lg font-medium margin-bottom-sm">Features</h3>
-                <ul className="space-vertical-sm">
+              <div>
+                <h3 className="text-lg font-medium mb-3">Features</h3>
+                <ul className="space-y-2">
                   {product.features.map((feature, index) => (
-                    <li key={index} className="body-base text-secondary">• {feature}</li>
+                    <li key={index} className="text-gray-600 flex items-center">
+                      <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mr-3"></span>
+                      {feature}
+                    </li>
                   ))}
                 </ul>
               </div>
 
               {/* Actions */}
-              <div className="flex-start space-horizontal-base">
+              <div className="flex gap-4 pt-4">
                 <Button
                   onClick={handleAddToCart}
-                  className="btn btn-primary flex-grow"
+                  className="flex-1 h-12 text-base font-medium"
                 >
-                  <ShoppingCart className="size-4 margin-right-sm" />
+                  <ShoppingCart className="size-5 mr-2" />
                   Add to Cart
                 </Button>
-                <Button variant="outline" className="btn btn-outline">
-                  <Heart className="size-4" />
+                <Button variant="outline" className="h-12 px-4">
+                  <Heart className="size-5" />
                 </Button>
               </div>
             </div>

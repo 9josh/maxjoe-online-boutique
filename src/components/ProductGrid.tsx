@@ -1,9 +1,9 @@
 
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Heart, ShoppingCart, Eye } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useCart } from "@/contexts/CartContext";
-import { useToast } from "@/hooks/use-toast";
 
 interface Product {
   id: number;
@@ -19,30 +19,42 @@ interface ProductGridProps {
 
 const ProductGrid = ({ products }: ProductGridProps) => {
   const { addToCart } = useCart();
-  const { toast } = useToast();
+  const [notifications, setNotifications] = useState<{[key: number]: {message: string, type: 'success' | 'error'}}>({});
 
   const handleAddToCart = (product: Product) => {
     const success = addToCart(product);
     
-    if (success) {
-      toast({
-        title: "Added to cart",
-        description: `${product.name} has been added to your cart.`,
+    const notification = success 
+      ? { message: "Added to cart!", type: 'success' as const }
+      : { message: "Item already in cart!", type: 'error' as const };
+    
+    setNotifications(prev => ({ ...prev, [product.id]: notification }));
+    
+    setTimeout(() => {
+      setNotifications(prev => {
+        const newNotifications = { ...prev };
+        delete newNotifications[product.id];
+        return newNotifications;
       });
-    } else {
-      toast({
-        title: "Item already in cart",
-        description: "This item is already added to your cart.",
-        variant: "destructive",
-      });
-    }
+    }, 3000);
   };
 
   return (
     <div className="product-grid">
       {products.map((product) => (
         <div key={product.id} className="product-card">
-          <div className="product-image">
+          <div className="product-image relative">
+            {/* Notification Popup */}
+            {notifications[product.id] && (
+              <div className={`absolute top-2 left-2 right-2 z-10 px-3 py-2 rounded-md text-sm text-center font-medium transition-all ${
+                notifications[product.id].type === 'success' 
+                  ? 'bg-green-500 text-white' 
+                  : 'bg-red-500 text-white'
+              }`}>
+                {notifications[product.id].message}
+              </div>
+            )}
+            
             <img
               src={product.image}
               alt={product.name}

@@ -44,54 +44,66 @@ const Cart = () => {
               <div className="lg:col-span-2">
                 <div className="space-vertical-lg">
                   {cartItems.map((item) => (
-                    <div key={item.id} className="cart-item-enhanced bg-white padding-lg rounded-lg shadow-sm">
-                      <div className="cart-item-layout">
+                    <div key={item.id} className="bg-white padding-lg rounded-lg shadow-sm">
+                      <div className="flex flex-col md:flex-row gap-4">
                         <img
                           src={item.image}
                           alt={item.name}
-                          className="cart-item-image object-cover rounded-md flex-shrink-0"
+                          className="w-24 h-24 md:w-32 md:h-32 object-cover rounded-md flex-shrink-0"
                         />
-                        <div className="cart-item-details">
-                          <h3 className="subheading-lg font-medium text-primary">{item.name}</h3>
-                          <div className="cart-item-price-section">
-                            <span className="cart-unit-price-label">Unit Price</span>
-                            <p className="text-secondary">${item.price.toLocaleString()}</p>
+                        <div className="flex-1 space-y-3">
+                          <div>
+                            <h3 className="subheading-lg font-medium text-primary">{item.name}</h3>
+                            <div className="mt-1">
+                              <span className="text-sm text-gray-500">Unit Price: </span>
+                              <span className="text-secondary">${item.price.toLocaleString()}</span>
+                            </div>
                           </div>
-                        </div>
-                        <div className="cart-item-controls">
-                          <div className="cart-quantity-controls">
-                            <div className="flex-start space-horizontal-sm">
+                          
+                          <div className="flex flex-col md:flex-row md:items-center gap-4">
+                            {/* Quantity Controls */}
+                            <div className="flex items-center gap-2">
                               <Button
                                 variant="outline"
                                 size="sm"
                                 onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                                className="btn btn-outline size-8 padding-none"
+                                className="w-8 h-8 p-0"
                               >
                                 <Minus className="size-4" />
                               </Button>
-                              <span className="size-8 text-center">{item.quantity}</span>
+                              <span className="w-8 text-center font-medium">{item.quantity}</span>
                               <Button
                                 variant="outline"
                                 size="sm"
                                 onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                                className="btn btn-outline size-8 padding-none"
+                                className="w-8 h-8 p-0"
                               >
                                 <Plus className="size-4" />
                               </Button>
                             </div>
-                            <div className="cart-item-total">
-                              <span className="cart-total-label">Item Quantity Total</span>
-                              <span className="cart-total-price">${(item.price * item.quantity).toLocaleString()}</span>
+
+                            {/* Item Total - Shows under quantity controls on tablet/laptop */}
+                            <div className="md:flex md:flex-col md:items-start">
+                              <span className="text-sm text-gray-500 md:block hidden">Item Quantity Total</span>
+                              <span className="font-medium text-lg">${(item.price * item.quantity).toLocaleString()}</span>
                             </div>
+
+                            {/* Delete Button */}
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              onClick={() => removeFromCart(item.id)}
+                              className="text-red-500 hover:text-red-700 hover:bg-red-50 p-2 md:ml-auto"
+                            >
+                              <Trash2 className="size-4" />
+                            </Button>
                           </div>
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            onClick={() => removeFromCart(item.id)}
-                            className="btn btn-ghost text-error hover:text-error-dark padding-sm cart-remove-btn"
-                          >
-                            <Trash2 className="size-4" />
-                          </Button>
+
+                          {/* Item Total - Mobile view */}
+                          <div className="md:hidden">
+                            <span className="text-sm text-gray-500">Total: </span>
+                            <span className="font-medium">${(item.price * item.quantity).toLocaleString()}</span>
+                          </div>
                         </div>
                       </div>
                     </div>
