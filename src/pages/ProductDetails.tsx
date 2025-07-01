@@ -73,121 +73,141 @@ const ProductDetails = () => {
   };
 
   return (
-    <div className="page-container">
+    <div className="min-h-screen bg-gradient-hero">
       <Header />
-      <main className="padding-top-xl">
-        <div className="section-container padding-vertical-xl">
+      <main className="pt-20">
+        {/* Back Button */}
+        <div className="section-container py-6">
           <Button
             variant="ghost"
             onClick={handleBack}
-            className="btn btn-ghost margin-bottom-lg"
+            className="flex items-center gap-2 text-grey-slate hover:text-silver-primary transition-colors"
           >
-            <ArrowLeft className="size-4 margin-right-sm" />
+            <ArrowLeft className="size-4" />
             Back
           </Button>
+        </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+        {/* Product Details Container */}
+        <div className="section-container pb-20">
+          <div className="product-details-layout">
             {/* Product Images Column */}
-            <div className="space-y-4">
-              {/* Main Image with Slider Controls */}
-              <div className="relative">
-                <img
-                  src={product.images[selectedImage]}
-                  alt={product.name}
-                  className="w-full aspect-square object-cover rounded-lg"
-                />
+            <div className="product-images-column">
+              {/* Main Image Container with Slider */}
+              <div className="product-image-slider">
+                <div className="relative overflow-hidden rounded-xl bg-white shadow-luxury">
+                  <img
+                    src={product.images[selectedImage]}
+                    alt={product.name}
+                    className="w-full aspect-square object-cover"
+                  />
+                  
+                  {/* Slider Navigation Buttons */}
+                  {product.images.length > 1 && (
+                    <>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={prevImage}
+                        className="slider-btn slider-btn-left"
+                      >
+                        <ChevronLeft className="size-5" />
+                      </Button>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={nextImage}
+                        className="slider-btn slider-btn-right"
+                      >
+                        <ChevronRight className="size-5" />
+                      </Button>
+                    </>
+                  )}
+                </div>
+                
+                {/* Thumbnail Images */}
                 {product.images.length > 1 && (
-                  <>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      onClick={prevImage}
-                      className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white shadow-md rounded-full p-2"
-                    >
-                      <ChevronLeft className="size-4" />
-                    </Button>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      onClick={nextImage}
-                      className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white shadow-md rounded-full p-2"
-                    >
-                      <ChevronRight className="size-4" />
-                    </Button>
-                  </>
+                  <div className="product-thumbnails">
+                    {product.images.map((image, index) => (
+                      <img
+                        key={index}
+                        src={image}
+                        alt={`${product.name} ${index + 1}`}
+                        className={`thumbnail ${selectedImage === index ? 'thumbnail-active' : ''}`}
+                        onClick={() => setSelectedImage(index)}
+                      />
+                    ))}
+                  </div>
                 )}
               </div>
-              
-              {/* Thumbnail Images */}
-              {product.images.length > 1 && (
-                <div className="flex gap-3 justify-center">
-                  {product.images.map((image, index) => (
-                    <img
-                      key={index}
-                      src={image}
-                      alt={`${product.name} ${index + 1}`}
-                      className={`w-20 h-20 object-cover rounded-md cursor-pointer border-2 transition-all ${
-                        selectedImage === index ? 'border-silver-primary shadow-md' : 'border-gray-200 hover:border-gray-300'
-                      }`}
-                      onClick={() => setSelectedImage(index)}
-                    />
-                  ))}
-                </div>
-              )}
             </div>
 
             {/* Product Info Column */}
-            <div className="space-y-6">
-              <div>
-                <div className="text-sm text-gray-500 uppercase tracking-wide mb-2">{product.category}</div>
-                <h1 className="text-3xl lg:text-4xl font-light text-gray-900 mb-4">{product.name}</h1>
-                <p className="text-2xl lg:text-3xl text-gray-900 font-medium">${product.price.toLocaleString()}</p>
-              </div>
-              
-              <p className="text-gray-600 leading-relaxed">{product.description}</p>
-              
-              {/* Color Selection */}
-              <div>
-                <h3 className="text-lg font-medium mb-3">Available Colors</h3>
-                <div className="flex gap-3">
-                  {product.colors.map((color) => (
-                    <Button
-                      key={color}
-                      variant={selectedColor === color ? "default" : "outline"}
-                      onClick={() => setSelectedColor(color)}
-                      className="px-4 py-2"
-                    >
-                      {color}
-                    </Button>
-                  ))}
+            <div className="product-info-column">
+              <div className="product-info-content">
+                {/* Product Category */}
+                <div className="product-category-badge">
+                  {product.category}
                 </div>
-              </div>
+                
+                {/* Product Name */}
+                <h1 className="product-title">
+                  {product.name}
+                </h1>
+                
+                {/* Product Price */}
+                <p className="product-price-main">
+                  ${product.price.toLocaleString()}
+                </p>
+                
+                {/* Product Description */}
+                <p className="product-description">
+                  {product.description}
+                </p>
+                
+                {/* Color Selection */}
+                <div className="product-section">
+                  <h3 className="section-title">Available Colors</h3>
+                  <div className="color-options">
+                    {product.colors.map((color) => (
+                      <Button
+                        key={color}
+                        variant={selectedColor === color ? "default" : "outline"}
+                        onClick={() => setSelectedColor(color)}
+                        className="color-option-btn"
+                      >
+                        {color}
+                      </Button>
+                    ))}
+                  </div>
+                </div>
 
-              {/* Features */}
-              <div>
-                <h3 className="text-lg font-medium mb-3">Features</h3>
-                <ul className="space-y-2">
-                  {product.features.map((feature, index) => (
-                    <li key={index} className="text-gray-600 flex items-center">
-                      <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mr-3"></span>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                {/* Features */}
+                <div className="product-section">
+                  <h3 className="section-title">Features</h3>
+                  <ul className="features-list">
+                    {product.features.map((feature, index) => (
+                      <li key={index} className="feature-item">
+                        <span className="feature-bullet"></span>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-              {/* Actions */}
-              <div className="flex gap-4 pt-4">
-                <Button
-                  onClick={handleAddToCart}
-                  className="flex-1 h-12 text-base font-medium"
-                >
-                  <ShoppingCart className="size-5 mr-2" />
-                  Add to Cart
-                </Button>
-                <Button variant="outline" className="h-12 px-4">
-                  <Heart className="size-5" />
-                </Button>
+                {/* Action Buttons */}
+                <div className="product-actions">
+                  <Button
+                    onClick={handleAddToCart}
+                    className="add-to-cart-btn"
+                  >
+                    <ShoppingCart className="size-5 mr-3" />
+                    Add to Cart
+                  </Button>
+                  <Button variant="outline" className="wishlist-btn">
+                    <Heart className="size-5" />
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
